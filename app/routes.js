@@ -9,12 +9,12 @@ router.post('/uj2/nhs-login-answer', function (req, res) {
     // The name between the quotes is the same as the 'name' attribute on the input elements
     // However in JavaScript we can't use hyphens in variable names
 
-    const over18 = req.session.data['nhs-login']
+    const nhslogin = req.session.data['nhs-login']
 
-    if (over18 === 'false') {
-        res.redirect('http://www.bbc.co.uk')
+    if (nhslogin === 'false') {
+        res.redirect('38')
     } else {
-        res.redirect('http://www.sky.com')
+        res.redirect('https://svps-nhs-login.herokuapp.com/uj2/enter-email')
     }
 })
 
