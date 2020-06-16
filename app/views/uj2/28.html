@@ -5,7 +5,7 @@ Question page
 {% endblock %}
 
 {% block beforeContent %}
-<a class="govuk-back-link" href="17">Back</a>
+<a class="govuk-back-link" href="index.html">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -13,26 +13,18 @@ Question page
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-xl">Would you like to set up an account using NHS login?</h1>
+        <h1 class="govuk-heading-xl">Have you used this service before?</h1>
 
-        <p>Setting up an account will make it easier for you to do the following things in the future:</p>
+        <form class="form" action="/uj2/30" method="post">
 
-        <ul class="govuk-list govuk-list--bullet">
-            <li>unsubscribe from the service if your circumstances change</li>
-            <li>customise your support if your circumstances change</li>
-            <li>view relevant information relating to your support</li>
-            <li>be contacted more easily</li>
-        </ul>
-
-        <form class="form" action="https://svps-nhs-login.herokuapp.com/uj1/enter-email" method="post">
 
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset">
-                    <!--  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                        <h1 class="govuk-fieldset__heading">
-                           
-                        </h1>
-                    </legend> -->
+                    <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                            <h1 class="govuk-fieldset__heading">
+                                Where do you live?
+                            </h1>
+                        </legend> -->
                     <div class="govuk-radios">
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england">
@@ -47,7 +39,6 @@ Question page
                             </label>
                         </div>
 
-
                     </div>
                 </fieldset>
             </div>
@@ -55,8 +46,6 @@ Question page
             <button class="govuk-button" data-module="govuk-button">Continue</button>
 
         </form>
-
-        <a href="22" class="govuk-body-s">Skip NHS login</a>
 
     </div>
 </div>
