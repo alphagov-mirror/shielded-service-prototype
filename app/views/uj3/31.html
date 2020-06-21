@@ -95,12 +95,18 @@ Question page
                         Weekly delivery of basic supplies
                     </th>
                     <td class="govuk-table__cell">
+                        {% if data['supplies'] == "No" %}
                         <strong class="govuk-tag govuk-tag--green">
                             Active
                         </strong>
+                        {% else %}
+                        <strong class="govuk-tag govuk-tag--grey">
+                            Not requested
+                        </strong>
+                        {% endif %}
 
                     </td>
-                    <td class="govuk-table__cell"><a href="24" class="govuk-link">Change</a> </td>
+                    <td class="govuk-table__cell"><a href="24-exist" class="govuk-link">Change</a> </td>
                 </tr>
 
                 <tr class="govuk-table__row">
@@ -108,12 +114,18 @@ Question page
                         Priority for supermarket deliveries
                     </th>
                     <td class="govuk-table__cell">
+                        {% if data['supplies'] == "No" %}
                         <strong class="govuk-tag govuk-tag--green">
                             Active
                         </strong>
+                        {% else %}
+                        <strong class="govuk-tag govuk-tag--grey">
+                            Not requested
+                        </strong>
+                        {% endif %}
 
                     </td>
-                    <td class="govuk-table__cell"><a href="24" class="govuk-link">Change</a> </td>
+                    <td class="govuk-table__cell"><a href="24-exist" class="govuk-link">Change</a> </td>
                 </tr>
 
                 <tr class="govuk-table__row">
@@ -121,12 +133,17 @@ Question page
                         Basic care needs service
                     </th>
                     <td class="govuk-table__cell">
-                        <strong class="govuk-tag govuk-tag--grey">
-                            Inactive
+                        {% if data['care'] == "No" %}
+                        <strong class="govuk-tag govuk-tag--green">
+                            Active
                         </strong>
-
+                        {% else %}
+                        <strong class="govuk-tag govuk-tag--grey">
+                            Not requested
+                        </strong>
+                        {% endif %}
                     </td>
-                    <td class="govuk-table__cell"><a href="25" class="govuk-link">Change</a> </td>
+                    <td class="govuk-table__cell"><a href="25-exist" class="govuk-link">Change</a> </td>
                 </tr>
                 <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header">
@@ -138,7 +155,7 @@ Question page
                         </strong>
 
                     </td>
-                    <td class="govuk-table__cell"><a href="#" class="govuk-link">Change</a> </td>
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link">Request</a> </td>
                 </tr>
 
             </tbody>

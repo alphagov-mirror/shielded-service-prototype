@@ -94,9 +94,16 @@ Question page
                         <a href="24"> Weekly delivery of basic supplies</a>
                     </th>
                     <td class="govuk-table__cell">
+
+                        {% if data['supplies'] == "No" %}
                         <strong class="govuk-tag govuk-tag--grey">
                             Requested
                         </strong>
+                        {% else %}
+                        <strong class="govuk-tag govuk-tag--grey">
+                            Not requested
+                        </strong>
+                        {% endif %}
 
                     </td>
                 </tr>
@@ -106,9 +113,16 @@ Question page
                         <a href="24"> Priority for supermarket deliveries</a>
                     </th>
                     <td class="govuk-table__cell">
+
+                        {% if data['supplies'] == "No" %}
                         <strong class="govuk-tag govuk-tag--grey">
                             Requested
                         </strong>
+                        {% else %}
+                        <strong class="govuk-tag govuk-tag--grey">
+                            Not requested
+                        </strong>
+                        {% endif %}
 
                     </td>
                 </tr>
@@ -118,10 +132,16 @@ Question page
                         <a href="25"> Basic care needs service</a>
                     </th>
                     <td class="govuk-table__cell">
+
+                        {% if data['care'] == "No" %}
                         <strong class="govuk-tag govuk-tag--grey">
                             Requested
                         </strong>
-
+                        {% else %}
+                        <strong class="govuk-tag govuk-tag--grey">
+                            Not requested
+                        </strong>
+                        {% endif %}
                     </td>
                 </tr>
                 <!-- <tr class="govuk-table__row">
