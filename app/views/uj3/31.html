@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="17">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">Confirm your support needs</h1>
+
+        <h2 class="govuk-heading-m">Confirm your address where you need support</h2>
+
+        <p>1 Preston Way<br />
+            Leeds<br />
+            LS1 1SA</p>
+
+        <a href="22" class="govuk-link">I need support at a different address</a> <br /><br /><br />
+
+        <hr>
+
+        <br />
+
+        <h2 class="govuk-heading-m">Confirm your contact details</h2>
+
+        <p>Phone number (for calls): 01234 567890</p>
+        <p>Phone number (for texts): 07890 123456</p>
+        <p>Email: your@emailaddress.co.uk</p>
+
+        <a href="23" class="govuk-link">Change contact details</a> <br /><br /><br />
+
+        <hr>
+
+        <br />
+
+        <h2 class="govuk-heading-m">Do you have a way of getting essential supplies at the moment?</h2>
+
+        <p>No</p>
+
+        <a href="24" class="govuk-link">Change</a> <br /><br /><br />
+
+        <hr>
+
+        <br />
+
+        <h2 class="govuk-heading-m">Are your basic care needs being met at the moment?</h2>
+
+        <p>No</p>
+
+        <a href="25" class="govuk-link">Change</a> <br /><br /><br />
+
+        <hr>
+
+        <br />
+
+        <h2 class="govuk-heading-m">Now send your application</h2>
+
+        <p>By submitting this application you’re confirming that, as far as you know, the details you’re providing are correct</p>
+
+        <br />
+
+        <a href="../the-end.html">
+            <button class="govuk-button" data-module="govuk-button">
+                Accept and send
+            </button></a>
+
+        <br /><br />
+
+    </div>
+</div>
+
+{% endblock %}
