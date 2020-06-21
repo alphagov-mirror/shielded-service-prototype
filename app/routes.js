@@ -60,7 +60,7 @@ router.post('/uj3/conditions-check', function (req, res) {
         res.redirect('/uj3/1')
     } else {
         // Send user to ineligible page
-        res.redirect('/uj3/90')
+        res.redirect('/uj3/sorry')
     }
 })
 

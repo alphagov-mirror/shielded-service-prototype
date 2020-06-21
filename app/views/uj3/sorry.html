@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="23">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+        <h1 class="govuk-heading-xl">Sorry, you’re not eligible for help through this service</h1>
+
+
+        <p class="govuk-body">This service is for people with one of the listed medical conditions or have been told by their GP or hospital clinician that they need to ‘shield’.</p>
+        <p class="govuk-body">You can read <a class="govuk-link" href="https://www.gov.uk/coronavirus">general guidance on what you need to do</a>.</p>
+        <p class="govuk-body"><a class="govuk-link" href="https://www.gov.uk/coronavirus-local-help">Contact your local authority</a> if you need supplies urgently and cannot rely on family, friends or neighbours.</p>
+        <p class="govuk-body">If your medical condition changes or your GP or hospital clinician tells you that you need to start ‘shielding’, go to <a class="govuk-link" href="https://www.gov.uk/coronavirus-extremely-vulnerable">www.gov.uk/coronavirus-extremely-vulnerable</a> and go through the questions again.</p>
+        <p class="govuk-body">We won’t store the information you entered into this service.</p>
+        <p class="govuk-body"><a class="govuk-link" href="https://www.gov.uk/done/coronavirus-extremely-vulnerable">Give feedback on this service</a>.</p>
+
+
+    </div>
+</div>
+
+{% endblock %}
