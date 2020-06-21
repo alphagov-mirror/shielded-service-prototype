@@ -5,7 +5,7 @@ Question page
 {% endblock %}
 
 {% block beforeContent %}
-<a class="govuk-back-link" href="index-a.html">Back</a>
+<a class="govuk-back-link" href="17">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -22,15 +22,17 @@ Question page
                             Create an account for the Shieled vulnerable person service
                         </h1>
                     </legend>
-                    <span id="sign-in-hint" class="govuk-hint">
-                        Creating an account will make it easier for you to do the following things in the future:
-                        <ul>
-                            <li>unsubscribe from the service if your circumstances change</li>
-                            <li>customise your support if your circumstances change</li>
-                            <li>view relevant information relating to your support</li>
-                            <li>be contacted more easily</li>
-                        </ul>
-                    </span>
+                    <p class="govuk-body-m">
+                        Creating an account will make it easier for you to do the following things in the future:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>unsubscribe from the service if your circumstances change</li>
+                        <li>customise your support if your circumstances change</li>
+                        <li>view relevant information relating to your support</li>
+                        <li>be contacted more easily</li>
+                    </ul>
+
+                    <br />
+
                     <div class="govuk-radios">
                         <div class="govuk-radios__item">
                             <input class="govuk-radios__input" id="sign-in" name="createaccount" type="radio" aria-describedby="sign-in-item-hint" value="True">

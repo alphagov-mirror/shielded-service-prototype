@@ -29,7 +29,7 @@ router.post('/uj3/create-account-check', function (req, res) {
         res.redirect('https://svps-nhs-login.herokuapp.com/uj3/enter-email')
     } else {
         // Send user to ineligible page
-        res.redirect('/uj3/1')
+        res.redirect('/uj3/44')
     }
 })
 
