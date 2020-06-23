@@ -15,33 +15,39 @@ Question page
 
 
 
-        <form class="form" action="/uj2/30" method="post">
+        <form class="form" action="create-account-check" method="post">
 
 
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                         <h1 class="govuk-fieldset__heading">
-                            How do you want to sign in?
+                            Create an account for the Shielded vulnerable person service
                         </h1>
                     </legend>
-                    <span id="sign-in-hint" class="govuk-hint">
-                        You’ll need an account to prove your identity and complete your Self Assessment.
-                    </span>
+                    <p class="govuk-body-m">
+                        Creating an account will make it easier for you to do the following things in the future:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>unsubscribe from the service if your circumstances change</li>
+                        <li>customise your support if your circumstances change</li>
+                        <li>view relevant information relating to your support</li>
+                        <li>be contacted more easily</li>
+                    </ul>
+                    <br />
                     <div class="govuk-radios">
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
+                            <input class="govuk-radios__input" id="sign-in" name="createaccount" type="radio" value="True" aria-describedby="sign-in-item-hint">
                             <label class="govuk-label govuk-radios__label" for="sign-in">
-                                Sign in with NHS login
+                                Create an account with NHS login
                             </label>
                             <span id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
-                                You’ll have a user ID if you’ve registered for Self Assessment or filed a tax return online before.
+                                You can create an account using your existing NHS login. If you do not currently have an NHS login, setting one up is simple.
                             </span>
                         </div>
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="sign-in-2" name="sign-in" type="radio" value="govuk-verify" aria-describedby="sign-in-2-item-hint">
+                            <input class="govuk-radios__input" id="sign-in-2" name="createaccount" type="radio" value="Verify" aria-describedby="sign-in-2-item-hint">
                             <label class="govuk-label govuk-radios__label" for="sign-in-2">
-                                Sign in with GOV.UK Verify
+                                Create an account with GOV.UK Verify
                             </label>
                             <span id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint">
                                 You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity.
@@ -49,12 +55,12 @@ Question page
                         </div>
                         <div class="govuk-radios__divider">or</div>
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="sign-in-2" name="sign-in" type="radio" value="govuk-verify" aria-describedby="sign-in-2-item-hint">
+                            <input class="govuk-radios__input" id="sign-in-2" name="createaccount" type="radio" value="False" aria-describedby="sign-in-2-item-hint">
                             <label class="govuk-label govuk-radios__label" for="sign-in-2">
                                 Continue without signing in
                             </label>
                             <span id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint">
-                                You won't be able to log in and amend your support needs in future.
+                                You won't be able to sign in and amend your support needs in future, or view relevant information relating to your support
                             </span>
                         </div>
                     </div>

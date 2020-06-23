@@ -27,6 +27,9 @@ router.post('/uj3/create-account-check', function (req, res) {
     if (createaccount == "True") {
         // Send user to next page
         res.redirect('https://svps-nhs-login.herokuapp.com/uj3/enter-email')
+    } else if (createaccount == "Verify") {
+        // Send user to next page
+        res.redirect('/uj3/verify')
     } else {
         // Send user to ineligible page
         res.redirect('/uj3/44')
