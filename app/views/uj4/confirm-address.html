@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="confirm-postcode">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+
+
+        <h1 class="govuk-heading-xl">What is the address where you need support?</h1>
+
+        <h2 class="govuk-heading-m">Postcode</h2>
+
+
+        <p class="govuk-body">
+            <span class="govuk-!-font-weight-bold govuk-!-padding-right-3">
+                {{ data['postcode'] }}
+            </span>
+            <a class="govuk-link" href="confirm-postcode">Change</a>
+            <br /><br />
+        </p>
+
+
+        <form class=" form" action="/uj4/confirm-address-2" method="post">
+
+            <div class="govuk-form-group gem-c-select">
+                <label class="govuk-label govuk-label--m" for="address">Select your address</label>
+
+
+                <select name="address" id="address" class="govuk-select">
+                    <option value="{&quot;UPRN&quot;:&quot;72516007&quot;,&quot;PAO_START_NUMBER&quot;:&quot;1&quot;,&quot;STREET_DESCRIPTION&quot;:&quot;GLEBE COURT&quot;,&quot;LOCALITY_NAME&quot;:&quot;ROTHWELL&quot;,&quot;TOWN_NAME&quot;:&quot;LEEDS&quot;,&quot;ADMINISTRATIVE_AREA&quot;:&quot;LEEDS&quot;,&quot;POSTCODE_LOCATOR&quot;:&quot;LS26 0WR&quot;}">1, EXAMPLE STREET, TOWN, CITY, {{ data['postcode'] }}</option>
+
+                </select>
+            </div>
+
+            <p class="govuk-body">
+                <a class="govuk-link" href="/support-address">My address isn't listed or is wrong</a>
+            </p>
+            <button class="govuk-button" data-module="govuk-button">
+                Continue
+            </button>
+
+        </form>
+
+
+        <p class="govuk-body-s govuk-!-padding-top-3">
+            Contains Royal Mail data © Royal Mail copyright and database rights 2020
+        </p>
+
+    </div>
+
+
+    {% endblock %}
