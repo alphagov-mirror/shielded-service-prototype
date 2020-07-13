@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="17">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+        <h1 class="govuk-heading-xl">Sorry, NHS login has failed to authenticate you</h1>
+
+
+        <p class="govuk-body">This is either because you chose not to grant consent to share details from your NHS record with the Shielded Vulnerable People Service, or because something went wrong.
+        </p>
+
+        <p class="govuk-body">This means your details haven’t been retrieved from your NHS record.
+        </p>
+
+        <p class="govuk-body">You can <a href="https://svps-nhs-login.herokuapp.com/uj4/enter-email">try again with NHS login</a>, or <a href="uj4/44">continue without creating an account</a>.</p>
+
+
+
+    </div>
+</div>
+
+{% endblock %}
