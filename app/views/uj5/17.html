@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="index-a.html">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">Have you had a letter from the NHS or been told by your doctor to ’shield’ because you’re clinically extremely vulnerable to coronavirus?</h1>
+
+        <p>’Shielding’ means staying at home as much as possible and keeping visits outside to a minimum.</p>
+
+        <form class="form" action="shield-check" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <!--  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                           
+                        </h1>
+                    </legend> -->
+                    <div class="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="where-do-you-live" name="shield" type="radio" value="shield">
+                            <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+                                Yes, I’ve been told to shield
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="where-do-you-live-2" name="shield" type="radio" value="not-shield">
+                            <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+                                No, I’ve not been told to shield
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="where-do-you-live-3" name="shield" type="radio" value="not-sure-shield">
+                            <label class="govuk-label govuk-radios__label" for="where-do-you-live-3">
+                                Not sure
+                            </label>
+                        </div>
+
+                    </div>
+                </fieldset>
+            </div>
+
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

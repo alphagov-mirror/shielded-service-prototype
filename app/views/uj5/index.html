@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Start page example 1
+{% endblock %}
+
+{% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="/index.html">Home</a>
+        </li>
+        <!-- <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Section</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link">Subsection</a>
+      </li> -->
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">
+            Get shielding support as a clinically extremely vulnerable person
+        </h1>
+
+        <p>You can use this service to:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>ask for help meeting your basic care needs</li>
+            <li>get a weekly box of basic supplies</li>
+            <li>get priority for supermarket deliveries</li>
+            <li>update your details, or cancel services like boxes of basic supplies</li>
+        </ul>
+
+        <h2 id="who-should-register" class="govuk-heading-m">Who should register</h2>
+
+        <p>Register with this service if:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>you've received a letter to say your area is reintroducing shielding</li>
+
+            <li>you have a medical condition which means you’re classed as being clinically extremely vulnerable to coronavirus, or you’ve previously been told by your GP or hospital clinician that you need to ‘shield’</li>
+        </ul>
+
+
+
+        <p>Register whether you need help at the moment or not.</p>
+
+
+
+        <a href="/uj5/16" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8" data-module="govuk-button">
+            Start now
+            <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" role="presentation" focusable="false">
+                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+            </svg>
+        </a>
+
+        <h2 class="govuk-heading-m">Before you start</h2>
+
+        <p>You’ll also be asked for your NHS number. You can find it on any letter the NHS has sent you or on a prescription.</p>
+
+
+        <br />
+        <!--   <hr>
+        <br />
+        <h2 class="govuk-heading-m">Already have an account for the Shielded vulnerable person service?</h2>
+
+        <p><a href="https://svps-nhs-login.herokuapp.com/uj5/enter-email"><img src="../../../public/images/NHS-login-buttons/3x/SignInWith_Original@3x.png" style="height: 48px;"></a></p>
+        <p>Once signed in, you can amend your support needs.</p>
+        <br />
+
+        <!--  <p>Please note: this service is only available in England.</p>
+
+        <p>There’s separate guidance for:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li><a href="#">Northern Ireland</a></li>
+            <li><a href="#">Scotland</a></li>
+            <li><a href="#">Wales</a></li>
+        </ul> -->
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+        <!--   <h2 class="govuk-heading-m" id="subsection-title">
+            Already have a Shielded vulnerable person account?
+        </h2>
+
+        <p><a href="https://svps-nhs-login.herokuapp.com/uj5/enter-email"><img src="../../../public/images/NHS-login-buttons/3x/SignInWith_Original@3x.png" style="height: 48px;"></a></p>
+        <p>Once signed in, you can amend your support needs.</p>
+        <br /> -->
+
+        {% include "includes/index-sidebar.html" %}
+
+    </div>
+</div>
+{% endblock %}

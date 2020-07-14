@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="confirm-address-2">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">Confirm your contact details</h1>
+
+        <p>These details have been taken from your NHS records.</p>
+
+        <p> Please confirm they are correct, and that the number you are providing to receive text messages is a mobile.</p>
+
+        <p>Alternatively, you can use someone else's contact details if that's easier.</p>
+
+        <br />
+
+        <form class="form" action="/uj5/24" method="post">
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="telephone-number">
+                    Phone Number (for phone calls)
+                </label>
+                <input class="govuk-input govuk-input--width-20" id="telephone-number" name="telephone-number" type="tel" autocomplete="tel" value="0113 234 5678">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="telephone-number">
+                    Phone Number (for text messages)
+                </label>
+                <input class="govuk-input govuk-input--width-20" id="telephone-number-text" name="telephone-number-text" type="tel" autocomplete="tel" value="07123 456 789">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="email">
+                    Email address
+                </label>
+                <input class="govuk-input govuk-input--width-20" id="email" name="email" type="email" aria-describedby="email-hint" autocomplete="email" spellcheck="false" value="email@example.com">
+            </div>
+
+            <button class="govuk-button" data-module="govuk-button">
+                Continue
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
