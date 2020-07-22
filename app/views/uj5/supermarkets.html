@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="contact-details">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">Can we share your details with supermarkets so they can offer you priority delivery slots?</h1>
+
+        <p>Priority slot availability changes over time, and depends on capacity in your local area.</p>
+
+        <form class="form" action="/uj5/basic-care-needs" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+
+                    <div class="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="where-do-you-live" name="supermarket" type="radio" value="Yes">
+                            <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="where-do-you-live-2" name="supermarket" type="radio" value="No">
+                            <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+                                No
+                            </label>
+                        </div>
+
+                    </div>
+                </fieldset>
+            </div>
+
+            <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        Which supermarkets are involved?
+                    </span>
+                </summary>
+                <div class="govuk-details__text">
+                    <p>We share your name, address and contact details with these supermarkets so they can find you in their system and offer you priority slots.</p>
+
+                    <p>You will need to create an account with the supermarkets if you do not already have one.</p>
+
+                    <p>Supermarkets involved:</p>
+
+                    <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+
+                        <li>Asda</li>
+                        <li>Iceland</li>
+                        <li>Morrisons</li>
+                        <li>Ocado</li>
+                        <li>Sainsburys</li>
+                        <li>Tesco</li>
+                        <li>Waitrose</li>
+                    </ul>
+                    <br />
+                </div>
+                <br />
+            </details>
+
+            <button class="govuk-button" data-module="govuk-button">
+                Continue
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

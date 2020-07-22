@@ -248,19 +248,16 @@ router.post('/uj5/before-answer', function (req, res) {
 
 router.post('/uj5/create-account-check', function (req, res) {
 
-    // Make a variable and give it the value from 'know-nhs-number'
+    // Make a variable and give it the value from 'createaccount'
     var createaccount = req.session.data['createaccount']
 
     // Check whether the variable matches a condition
-    if (createaccount == "True") {
+    if (createaccount == "yes") {
         // Send user to next page
         res.redirect('https://svps-nhs-login.herokuapp.com/uj5/enter-email')
-    } else if (createaccount == "Verify") {
-        // Send user to next page
-        res.redirect('/uj5/verify')
     } else {
-        // Send user to ineligible page
-        res.redirect('/uj5/44')
+        // Send user to confirmation page
+        res.redirect('/uj5/confirmation')
     }
 })
 
@@ -288,10 +285,10 @@ router.post('/uj5/shield-check', function (req, res) {
     // Check whether the variable matches a condition
     if (shield == "shield") {
         // Send user to next page
-        res.redirect('/uj5/1-e')
+        res.redirect('/uj5/nhs-number')
     } else {
         // Send user to ineligible page
-        res.redirect('/uj5/88')
+        res.redirect('/uj5/medical-conditions')
     }
 })
 
@@ -303,7 +300,7 @@ router.post('/uj5/conditions-check', function (req, res) {
     // Check whether the variable matches a condition
     if (conditions == "True") {
         // Send user to next page
-        res.redirect('/uj5/1-e')
+        res.redirect('/uj5/nhs-number')
     } else {
         // Send user to ineligible page
         res.redirect('/uj5/sorry')
@@ -318,10 +315,42 @@ router.post('/uj5/check-england', function (req, res) {
     // Check whether the variable matches a condition
     if (country == "True") {
         // Send user to next page
-        res.redirect('/uj5/17')
+        res.redirect('/uj5/eligibility-2')
     } else {
         // Send user to ineligible page
         res.redirect('/uj5/sorry-england-only')
+    }
+})
+
+
+router.post('/uj5/yourself', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var yourself = req.session.data['yourself']
+
+    // Check whether the variable matches a condition
+    if (yourself == "Myself") {
+        // Send user to next page
+        res.redirect('/uj5/do-you-have-nhs-login')
+    } else {
+        // Send user to ineligible page
+        res.redirect('/uj5/postcode')
+    }
+})
+
+
+router.post('/uj5/has-nhs-login', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var nhslogin = req.session.data['have-nhs-login']
+
+    // Check whether the variable matches a condition
+    if (nhslogin == "Yes") {
+        // Send user to next page
+        res.redirect('/uj5/nhs-login')
+    } else {
+        // Send user to ineligible page
+        res.redirect('/uj5/postcode')
     }
 })
 

@@ -5,7 +5,7 @@ Question page
 {% endblock %}
 
 {% block beforeContent %}
-<!-- <a class="govuk-back-link" href="22">Back</a> -->
+<a class="govuk-back-link" href="yourself-someone-else">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -16,8 +16,9 @@ Question page
 
         <h1 class="govuk-heading-xl"> What is the postcode where you need support?</h1>
 
+        <p>Answer for the person who needs support</p>
 
-        <form class="form" action="/uj5/confirm-address" method="post">
+        <form class="form" action="/uj5/eligibility-2" method="post">
 
             <div class="govuk-form-group">
                 <label for="postcode" class="gem-c-label govuk-label">Postcode</label>

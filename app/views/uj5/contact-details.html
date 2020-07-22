@@ -5,7 +5,7 @@ Question page
 {% endblock %}
 
 {% block beforeContent %}
-<a class="govuk-back-link" href="confirm-address-2">Back</a>
+<a class="govuk-back-link" href="address-2">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -23,27 +23,27 @@ Question page
 
         <br />
 
-        <form class="form" action="/uj5/24" method="post">
+        <form class="form" action="/uj5/supermarkets" method="post">
 
             <div class="govuk-form-group">
                 <label class="govuk-label" for="telephone-number">
                     Phone Number (for phone calls)
                 </label>
-                <input class="govuk-input govuk-input--width-20" id="telephone-number" name="telephone-number" type="tel" autocomplete="tel" value="0113 234 5678">
+                <input class="govuk-input govuk-input--width-20" id="telephone-number" name="telephone-number" type="tel" autocomplete="tel" value="{{ data['telephone-number'] }}">
             </div>
 
             <div class="govuk-form-group">
                 <label class="govuk-label" for="telephone-number">
                     Phone Number (for text messages)
                 </label>
-                <input class="govuk-input govuk-input--width-20" id="telephone-number-text" name="telephone-number-text" type="tel" autocomplete="tel" value="07123 456 789">
+                <input class="govuk-input govuk-input--width-20" id="telephone-number-text" name="telephone-number-text" type="tel" autocomplete="tel" value="{{ data['telephone-number-text'] }}">
             </div>
 
             <div class="govuk-form-group">
                 <label class="govuk-label" for="email">
                     Email address
                 </label>
-                <input class="govuk-input govuk-input--width-20" id="email" name="email" type="email" aria-describedby="email-hint" autocomplete="email" spellcheck="false" value="email@example.com">
+                <input class="govuk-input govuk-input--width-20" id="email" name="email" type="email" aria-describedby="email-hint" autocomplete="email" spellcheck="false" value="{{ data['email'] }}">
             </div>
 
             <button class="govuk-button" data-module="govuk-button">

@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="yourself-someone-else">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">Do you have an NHS login?</h1>
+
+        <form class="form" action="has-nhs-login" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+
+                    <div class="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="have-nhs-login" name="have-nhs-login" type="radio" value="Yes">
+                            <label class="govuk-label govuk-radios__label" for="have-nhs-login">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="have-nhs-login-2" name="have-nhs-login" type="radio" value="No">
+                            <label class="govuk-label govuk-radios__label" for="have-nhs-login-2">
+                                No
+                            </label>
+                        </div>
+
+                    </div>
+                </fieldset>
+            </div>
+
+
+            <button class="govuk-button" data-module="govuk-button">
+                Continue
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
