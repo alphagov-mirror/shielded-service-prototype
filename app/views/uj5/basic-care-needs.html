@@ -18,13 +18,9 @@ Question page
         <p>For example, you do not have family, friends or neighbours who can help you wash, bathe and keep your house clean if you need them to.</p>
 
         {% if data.have-nhs-login == "Yes" %}
-
         <form class="form" action="/uj5/account" method="post">
-
             {% else %}
-
             <form class="form" action="/uj5/check-your-answers" method="post">
-
                 {% endif %}
 
                 <div class="govuk-form-group">
