@@ -38,7 +38,7 @@ Question page
                                     <label class="govuk-label" for="more-care-info-cond">
                                         More details (optional)
                                     </label>
-                                    <textarea class="govuk-textarea" id="more-detail" name="care-more-detail" rows="5" aria-describedby="more-detail-hint" value="{{ data['care-more-detail'] }}"></textarea>
+                                    <textarea class="govuk-textarea" id="more-detail" name="care-more-detail" rows="5" aria-describedby="more-detail-hint">{{ data['care-more-detail'] }}</textarea>
                                 </div>
 
                             </div>
@@ -48,6 +48,10 @@ Question page
                                     No
                                 </label>
                             </div>
+
+                            <input type="hidden" id="hidden" name="edittoggle" value="Yes">
+
+
 
                         </div>
                     </fieldset>
