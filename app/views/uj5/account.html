@@ -29,9 +29,22 @@ Question page
 
         <h2 class="govuk-heading-m">Your details</h2>
 
-        <p>{{ data['first-name'] }} {{ data['middle-name'] }} {{ data['last-name'] }}</p>
+        <p>{% if data.first-name %}
+            {{ data['first-name'] }}
+            {% else %}
+            Joe
+            {% endif %}
+            {% if data.middle-name %}
+            {{ data['middle-name'] }}
+            {% endif %}
+            {% if data.last-name %}
+            {{ data['last-name'] }}
+            {% else %}
+            Bloggs
+            {% endif %}
+        </p>
 
-        <a href="name" class="govuk-link">Change your name</a> <br /><br /><br />
+        <!--    <a href="name" class="govuk-link">Change your name</a> --> <br /><br /><br />
 
         <hr>
 
@@ -51,9 +64,23 @@ Question page
         <h2 class="govuk-heading-m">Your contact details</h2>
 
 
-        <p>Phone number (for calls): {{ data['telephone-number'] }}</p>
-        <p>Phone number (for texts): {{ data['telephone-number-text'] }}</p>
-        <p>Email: {{ data['email'] }}</p>
+        <p>Phone number (for calls): {% if data.telephone-number %}
+            {{ data['telephone-number'] }}
+            {% else %}
+            01234 567890
+            {% endif %}
+        </p>
+        <p>Phone number (for texts): {% if data.telephone-number-text %}
+            {{ data['telephone-number-text'] }}
+            {% else %}
+            07890 123456
+            {% endif %}
+        </p>
+        <p>Email: {% if data.email %}
+            {{ data['email'] }}
+            {% else %}
+            Existing@com
+            {% endif %}</p>
 
         <a href="#" class="govuk-link">Change contact details</a> <br /><br /><br />
 
@@ -64,7 +91,11 @@ Question page
         <h2 class="govuk-heading-m">Do you want priority supermarket deliveries?
         </h2>
 
-        <p>{{ data['supermarket'] }}</p>
+        <p>{% if data.supermarket %}
+            {{ data['supermarket'] }}
+            {% else %}
+            Yes
+            {% endif %}</p>
 
         <a href="supermarkets" class="govuk-link">Change</a> <br /><br /><br />
 
@@ -74,7 +105,11 @@ Question page
 
         <h2 class="govuk-heading-m">Do you need help meeting your basic care needs?</h2>
 
-        <p>{{ data['care-needs'] }}</p>
+        <p>{% if data.care-needs %}
+            {{ data['care-needs'] }}
+            {% else %}
+            No
+            {% endif %}</p>
 
         <p>{{ data['care-more-detail'] }}</p>
 
@@ -89,23 +124,23 @@ Question page
 
         {% if data.yourself == "Myself" %}
 
-        <a href="set-up-login">
-            <button class="govuk-button" data-module="govuk-button">
-                Accept and send
-            </button></a>
+            <a href="set-up-login">
+                <button class="govuk-button" data-module="govuk-button">
+                    Accept and send
+                </button></a>
 
-        <br /><br />
+            <br /><br />
 
-        {% else %}
-        <a href="confirmation">
-            <button class="govuk-button" data-module="govuk-button">
-                Accept and send
-            </button></a>
+            {% else %}
+            <a href="confirmation">
+                <button class="govuk-button" data-module="govuk-button">
+                    Accept and send
+                </button></a>
 
-        <br /><br />
-        {% endif %}
+            <br /><br />
+            {% endif %}
 
--->
+            -->
 
     </div>
 </div>
