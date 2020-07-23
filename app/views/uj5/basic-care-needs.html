@@ -17,7 +17,7 @@ Question page
 
         <p>For example, you do not have family, friends or neighbours who can help you wash, bathe and keep your house clean if you need them to.</p>
 
-        {% if data.have-nhs-login == "Yes" %}
+        {% if data['have-nhs-login'] == "Yes" %}
         <form class="form" action="/uj5/account" method="post">
             {% else %}
             <form class="form" action="/uj5/check-your-answers" method="post">
@@ -28,7 +28,7 @@ Question page
 
                         <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="more-care-info" name="care-needs" type="radio" data-aria-controls="more-care-info-conditional" value="Yes">
+                                <input class="govuk-radios__input" id="more-care-info" name="care-needs" type="radio" data-aria-controls="more-care-info-conditional" value="Yes" {{ checked("care-needs", "Yes") }}>
                                 <label class="govuk-label govuk-radios__label" for="more-care-info">
                                     Yes
                                 </label>
@@ -38,12 +38,12 @@ Question page
                                     <label class="govuk-label" for="more-care-info-cond">
                                         More details (optional)
                                     </label>
-                                    <textarea class="govuk-textarea" id="more-detail" name="care-more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+                                    <textarea class="govuk-textarea" id="more-detail" name="care-more-detail" rows="5" aria-describedby="more-detail-hint" value="{{ data['care-more-detail'] }}"></textarea>
                                 </div>
 
                             </div>
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="how-contacted-conditional-2" name="care-needs" type="radio" value="No">
+                                <input class="govuk-radios__input" id="how-contacted-conditional-2" name="care-needs" type="radio" value="No" {{ checked("care-needs", "No") }}>
                                 <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
                                     No
                                 </label>
