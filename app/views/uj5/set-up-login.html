@@ -23,9 +23,12 @@ Question page
 
         <br />
 
-        <p><a href="https://svps-nhs-login.herokuapp.com/uj5/enter-email">
-                <img src="../../../public/images/NHS-login-buttons/3x/RegisterUsing_Original@3x.png" style="max-width: 320px;">
-            </a></p>
+        <p>
+            <form id="clearcya" method="post" action="https://svps-nhs-login.herokuapp.com/uj5/enter-email">
+                <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="No">
+                <a href="javascript:{}" onclick="document.getElementById('clearcya').submit();return false;"><img src="../../../public/images/NHS-login-buttons/3x/RegisterUsing_Original@3x.png" style="max-width: 320px;"></a>
+            </form>
+        </p>
 
         <p><a href="confirmation"><button class="govuk-button" data-module="govuk-button">
                     Continue without an account
