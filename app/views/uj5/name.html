@@ -5,7 +5,11 @@ Question page
 {% endblock %}
 
 {% block beforeContent %}
+{% if data['check-your-answers-previous'] == "Yes" %}
+{% else %}
 <a class="govuk-back-link" href="nhs-number">Back</a>
+{% endif %}
+
 {% endblock %}
 
 {% block content %}
@@ -15,32 +19,39 @@ Question page
 
         <h1 class="govuk-heading-xl">What is your name?</h1>
 
-        <form class="form" action="/uj5/address" method="post">
+        {% if data['check-your-answers-previous'] == "Yes" %}
+        <form class="form" action="/uj5/check-your-answers" method="post">
+            {% else %}
+            <form class="form" action="/uj5/address" method="post">
+                {% endif %}
 
-            <div class="govuk-form-group">
-                <label class="govuk-label" for="first-name">
-                    First name
-                </label>
-                <input class="govuk-input" id="first-name" name="first-name" type="text" autocomplete="name" spellcheck="false" value="{{ data['first-name'] }}">
-            </div>
-            <div class="govuk-form-group">
-                <label class="govuk-label" for="middle-name">
-                    Middle name
-                </label>
-                <input class="govuk-input" id="middle-name" name="middle-name" type="text" autocomplete="name" spellcheck="false" value="{{ data['middle-name'] }}">
-            </div>
-            <div class="govuk-form-group">
-                <label class="govuk-label" for="last-name">
-                    Last name
-                </label>
-                <input class="govuk-input" id="last-name" name="last-name" type="text" autocomplete="name" spellcheck="false" value="{{ data['last-name'] }}">
-            </div>
 
-            <button class="govuk-button" data-module="govuk-button">
-                Continue
-            </button>
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="first-name">
+                        First name
+                    </label>
+                    <input class="govuk-input" id="first-name" name="first-name" type="text" autocomplete="name" spellcheck="false" value="{{ data['first-name'] }}">
+                </div>
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="middle-name">
+                        Middle name
+                    </label>
+                    <input class="govuk-input" id="middle-name" name="middle-name" type="text" autocomplete="name" spellcheck="false" value="{{ data['middle-name'] }}">
+                </div>
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="last-name">
+                        Last name
+                    </label>
+                    <input class="govuk-input" id="last-name" name="last-name" type="text" autocomplete="name" spellcheck="false" value="{{ data['last-name'] }}">
+                </div>
 
-        </form>
+                {% if data['check-your-answers-previous'] == "Yes" %}
+                <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Save and continue</button>
+                {% else %}
+                <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Continue</button>
+                {% endif %}
+
+            </form>
 
     </div>
 </div>

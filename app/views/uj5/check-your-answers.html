@@ -28,8 +28,13 @@ Question page
             {{ data['postcode'] }}</p>
         {% endif %}
 
+        <form id="addresschange" method="post" action="check-your-answers">
+            <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
+            <a href="address-2" class="govuk-link" onclick="this.closest('addresschange').submit();return false;">I need support at a different address</a>
+        </form>
 
-        <a href="address-2" class="govuk-link">I need support at a different address</a> <br /><br /><br />
+
+        <br /><br /><br />
 
         <hr>
 
@@ -39,7 +44,12 @@ Question page
 
         <p>{{ data['first-name'] }} {{ data['middle-name'] }} {{ data['last-name'] }}</p>
 
-        <a href="name" class="govuk-link">Change your name</a> <br /><br /><br />
+        <form id="namechange" method="post" action="check-your-answers">
+            <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
+            <a href="name" class="govuk-link" onclick="this.closest('addresschange').submit();return false;">Change your details</a>
+        </form>
+
+        <br /><br /><br />
 
         <hr>
 

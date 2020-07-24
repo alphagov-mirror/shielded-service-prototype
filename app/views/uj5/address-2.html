@@ -5,9 +5,11 @@ Question page
 {% endblock %}
 
 {% block beforeContent %}
-<a class="govuk-back-link" href="postcode">Back</a>
+{% if data['check-your-answers-previous'] == "Yes" %}
+{% else %}
+<a class="govuk-back-link" href="nhs-number">Back</a>
+{% endif %}
 {% endblock %}
-
 {% block content %}
 
 <div class="govuk-grid-row">
@@ -15,68 +17,65 @@ Question page
 
         <h1 class="govuk-heading-xl">What is the address where you need support?</h1>
 
+        {% if data['check-your-answers-previous'] == "Yes" %}
+        <form class="form" action="/uj5/check-your-answers" method="post">
+            {% else %}
+            <form class="form" action="/uj5/contact-details" method="post">
+                {% endif %}
+
+                <input type="hidden" name="authenticity_token" value="SnV+MOWEdAee7+tlThyfFdxBG1RuVu8xZLcoobc+6epHPEpOs/yk505OC4Jtf0kYasWY7EaI6F/rJDrpwsMltg==">
+
+                <div class="govuk-form-group">
+
+                    <label for="building_and_street_line_1" class="gem-c-label govuk-label">Building and street</label>
+
+                    <input name="building_and_street_line_1" value="{{ data['building_and_street_line_1'] }}" class="gem-c-input govuk-input" id="building_and_street_line_1" type="text" autocomplete="address-line1">
+                </div>
+
+                <label class="govuk-visually-hidden" for="building_and_street_line_2">
+                    Building and street (Second line)
+                </label>
+
+                <div class="govuk-form-group">
+
+                    <input name="building_and_street_line_2" value="{{ data['building_and_street_line_2'] }}" class="gem-c-input govuk-input" id="building_and_street_line_2" type="text" autocomplete="address-line2">
+                </div>
+
+                <div class="govuk-form-group">
+
+                    <label for="town_city" class="gem-c-label govuk-label">Town or city</label>
+
+                    <input name="town_city" value="{{ data['town_city'] }}" class="gem-c-input govuk-input govuk-input--width-20" id="town_city" type="text" autocomplete="address-level2">
+                </div>
 
 
-        <form class="form" action="/uj5/contact-details" method="post">
+                <div class="govuk-form-group">
 
-            <input type="hidden" name="authenticity_token" value="SnV+MOWEdAee7+tlThyfFdxBG1RuVu8xZLcoobc+6epHPEpOs/yk505OC4Jtf0kYasWY7EaI6F/rJDrpwsMltg==">
+                    <label for="county" class="gem-c-label govuk-label">County</label>
 
-            <div class="govuk-form-group">
-
-                <label for="building_and_street_line_1" class="gem-c-label govuk-label">Building and street</label>
-
-                <input name="building_and_street_line_1" value="{{ data['building_and_street_line_1'] }}" class="gem-c-input govuk-input" id="building_and_street_line_1" type="text" autocomplete="address-line1">
-            </div>
-
-            <label class="govuk-visually-hidden" for="building_and_street_line_2">
-                Building and street (Second line)
-            </label>
-
-            <div class="govuk-form-group">
-
-                <input name="building_and_street_line_2" value="{{ data['building_and_street_line_2'] }}" class="gem-c-input govuk-input" id="building_and_street_line_2" type="text" autocomplete="address-line2">
-            </div>
+                    <input name="county" value="{{ data['county'] }}" class="gem-c-input govuk-input govuk-input--width-20" id="county" type="text">
+                </div>
 
 
-            <div class="govuk-form-group">
+                <div class="govuk-form-group">
 
-                <label for="town_city" class="gem-c-label govuk-label">Town or city</label>
+                    <label for="postcode" class="gem-c-label govuk-label">Postcode</label>
 
-
-
-                <input name="town_city" value="{{ data['town_city'] }}" class="gem-c-input govuk-input govuk-input--width-20" id="town_city" type="text" autocomplete="address-level2">
-            </div>
+                    <input name="postcode" value="{{ data['postcode'] }}" class="gem-c-input govuk-input govuk-input--width-10" id="postcode" type="text" autocomplete="postal-code">
+                </div>
 
 
-            <div class="govuk-form-group">
+                <input type="hidden" id="manualaddress" name="manualaddress" value="Yes">
 
-                <label for="county" class="gem-c-label govuk-label">County</label>
+                {% if data['check-your-answers-previous'] == "Yes" %}
+                <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Save and continue</button>
+                {% else %}
+                <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Continue</button>
+                {% endif %}
 
 
 
-
-
-
-                <input name="county" value="{{ data['county'] }}" class="gem-c-input govuk-input govuk-input--width-20" id="county" type="text">
-            </div>
-
-
-            <div class="govuk-form-group">
-
-                <label for="postcode" class="gem-c-label govuk-label">Postcode</label>
-
-
-
-                <input name="postcode" value="{{ data['postcode'] }}" class="gem-c-input govuk-input govuk-input--width-10" id="postcode" type="text" autocomplete="postal-code">
-            </div>
-
-
-            <input type="hidden" id="manualaddress" name="manualaddress" value="Yes">
-
-            <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Continue</button>
-
-
-        </form>
+            </form>
     </div>
 </div>
 
