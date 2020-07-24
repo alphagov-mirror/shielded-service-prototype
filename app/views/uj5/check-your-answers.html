@@ -46,7 +46,7 @@ Question page
 
         <form id="namechange" method="post" action="check-your-answers">
             <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
-            <a href="name" class="govuk-link" onclick="this.closest('addresschange').submit();return false;">Change your details</a>
+            <a href="name" class="govuk-link" onclick="this.closest('namechange').submit();return false;">Change your details</a>
         </form>
 
         <br /><br /><br />
@@ -73,7 +73,12 @@ Question page
         <p>Phone number (for texts): {{ data['telephone-number-text'] }}</p>
         <p>Email: {{ data['email'] }}</p>
 
-        <a href="contact-details" class="govuk-link">Change contact details</a> <br /><br /><br />
+        <form id="contactchange" method="post" action="check-your-answers">
+            <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
+            <a href="contact-details" class="govuk-link" onclick="this.closest('contactchange').submit();return false;">Change your contact details</a>
+        </form>
+
+        <br /><br /><br />
 
         <hr>
 
@@ -84,7 +89,13 @@ Question page
 
         <p>{{ data['supermarket'] }}</p>
 
-        <a href="supermarkets" class="govuk-link">Change</a> <br /><br /><br />
+        <form id="supermarketschange" method="post" action="check-your-answers">
+            <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
+            <a href="supermarkets" class="govuk-link" onclick="this.closest('supermarketschange').submit();return false;">Change</a>
+        </form>
+
+
+        <br /><br /><br />
 
         <hr>
 
@@ -96,8 +107,12 @@ Question page
 
         <p>{{ data['care-more-detail'] }}</p>
 
+        <form id="basiccareneedschange" method="post" action="check-your-answers">
+            <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
+            <a href="basic-care-needs" class="govuk-link" onclick="this.closest('basiccareneedschange').submit();return false;">Change</a>
+        </form>
 
-        <a href="basic-care-needs" class="govuk-link">Change</a> <br /><br /><br />
+        <br /><br /><br />
 
         <hr>
 
