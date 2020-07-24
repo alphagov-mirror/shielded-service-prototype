@@ -17,19 +17,23 @@ Question page
 
         <h2 class="govuk-heading-m">The address where support is needed</h2>
 
-        <p>{% if data['address'] %}
-            {{ data['address'] }}
-            {% else %}
-            1
-            {% endif %} Example Street<br />
-            City<br />
-            {% if data['postcode'] %}
-            {{ data['postcode'] }}
-            {% else %}
-            LS11 1AB
-            {% endif %}</p>
+        {% if data['manualaddress'] == "Yes" %}
+        <p>{{ data['building_and_street_line_1'] }}<br />
+            {{ data['building_and_street_line_2'] }}<br />
+            {{ data['town_city'] }}<br />
+            {{ data['postcode'] }}</p>
+        {% else %}
+        <p>{{ data['address'] }} Example Street<br />
+            Leeds<br />
+            {{ data['postcode'] }}</p>
+        {% endif %}
 
-        <a href="address-2" class="govuk-link">I need support at a different address</a> <br /><br /><br />
+        <form class="form" id="addresschange" method="post" action="/uj5/address-2">
+            <input type="hidden" id="account-previous" name="account-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('addresschange').submit(); return false;">I need support at a different address</a>
+        </form>
+
+        <br /><br /><br />
 
         <hr>
 
@@ -90,7 +94,13 @@ Question page
             Existing@com
             {% endif %}</p>
 
-        <a href="#" class="govuk-link">Change contact details</a> <br /><br /><br />
+        <form class="form" id="contactchange" method="post" action="/uj5/contact-details">
+            <input type="hidden" id="account-previous" name="account-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('contactchange').submit(); return false;">Change contact details</a>
+        </form>
+
+
+        <br /><br /><br />
 
         <hr>
 
@@ -105,7 +115,12 @@ Question page
             Yes
             {% endif %}</p>
 
-        <a href="supermarkets" class="govuk-link">Change</a> <br /><br /><br />
+        <form class="form" id="supermarketschange" method="post" action="/uj5/supermarkets">
+            <input type="hidden" id="account-previous" name="account-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('supermarketschange').submit(); return false;">Change</a>
+        </form>
+
+        <br /><br /><br />
 
         <hr>
 
@@ -121,7 +136,12 @@ Question page
 
         <p>{{ data['care-more-detail'] }}</p>
 
-        <a href="basic-care-needs" class="govuk-link">Change</a> <br /><br /><br />
+        <form class="form" id="basic-care-needs-change" method="post" action="/uj5/basic-care-needs">
+            <input type="hidden" id="account-previous" name="account-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('basic-care-needs-change').submit(); return false;">Change</a>
+        </form>
+
+        <br /><br /><br />
 
 
         <!--   <h2 class="govuk-heading-m">Now send your application</h2>

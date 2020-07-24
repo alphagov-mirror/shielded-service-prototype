@@ -22,67 +22,68 @@ Question page
 
         {% if data['check-your-answers-previous'] == "Yes" %}
         <form class="form" action="/uj5/check-your-answers" method="post">
-            {% else %}
-            <form class="form" action="/uj5/basic-care-needs" method="post">
-                {% endif %}
-
-                <div class="govuk-form-group">
-                    <fieldset class="govuk-fieldset">
-
-                        <div class="govuk-radios">
-                            <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="where-do-you-live" name="supermarket" type="radio" value="Yes" {{ checked("supermarket", "Yes") }}>
-                                <label class="govuk-label govuk-radios__label" for="where-do-you-live">
-                                    Yes, share my details with supermarkets so they can give me priority
-                                </label>
-                            </div>
-                            <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="where-do-you-live-2" name="supermarket" type="radio" value="No" {{ checked("supermarket", "No") }}>
-                                <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
-                                    No, do not share my details with supermarkets
-                                </label>
-                            </div>
-
-                        </div>
-                    </fieldset>
-                </div>
-
-                {% if data['check-your-answers-previous'] == "Yes" %}
-                <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Save and continue</button>
+            {% elif data['account-previous'] == "Yes" %}
+            <form class="form" action="/uj5/account " method="post">
                 {% else %}
-                <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Continue</button>
-                {% endif %}
+                <form class="form" action="/uj5/basic-care-needs" method="post">
+                    {% endif %}
 
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
 
-            </form>
+                            <div class="govuk-radios">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="where-do-you-live" name="supermarket" type="radio" value="Yes" {{ checked("supermarket", "Yes") }}>
+                                    <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+                                        Yes, share my details with supermarkets so they can give me priority
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="where-do-you-live-2" name="supermarket" type="radio" value="No" {{ checked("supermarket", "No") }}>
+                                    <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+                                        No, do not share my details with supermarkets
+                                    </label>
+                                </div>
 
-            <details class="govuk-details" data-module="govuk-details">
-                <summary class="govuk-details__summary">
-                    <span class="govuk-details__summary-text">
-                        Which supermarkets are involved?
-                    </span>
-                </summary>
-                <div class="govuk-details__text">
-                    <p>We share your name, address and contact details with these supermarkets so they can find you in their system and offer you priority slots.</p>
+                            </div>
+                        </fieldset>
+                    </div>
 
-                    <p>You will need to create an account with the supermarkets if you do not already have one.</p>
+                    {% if data['check-your-answers-previous'] == "Yes" or data['account-previous'] == "Yes" %}
+                    <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Save and continue</button>
+                    {% else %}
+                    <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Continue</button>
+                    {% endif %}
 
-                    <p>Supermarkets involved:</p>
+                </form>
 
-                    <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+                <details class="govuk-details" data-module="govuk-details">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                            Which supermarkets are involved?
+                        </span>
+                    </summary>
+                    <div class="govuk-details__text">
+                        <p>We share your name, address and contact details with these supermarkets so they can find you in their system and offer you priority slots.</p>
 
-                        <li>Asda</li>
-                        <li>Iceland</li>
-                        <li>Morrisons</li>
-                        <li>Ocado</li>
-                        <li>Sainsburys</li>
-                        <li>Tesco</li>
-                        <li>Waitrose</li>
-                    </ul>
+                        <p>You will need to create an account with the supermarkets if you do not already have one.</p>
+
+                        <p>Supermarkets involved:</p>
+
+                        <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+
+                            <li>Asda</li>
+                            <li>Iceland</li>
+                            <li>Morrisons</li>
+                            <li>Ocado</li>
+                            <li>Sainsburys</li>
+                            <li>Tesco</li>
+                            <li>Waitrose</li>
+                        </ul>
+                        <br />
+                    </div>
                     <br />
-                </div>
-                <br />
-            </details>
+                </details>
 
     </div>
 </div>
