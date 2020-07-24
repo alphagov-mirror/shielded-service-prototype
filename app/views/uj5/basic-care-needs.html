@@ -57,10 +57,17 @@ Question page
                     </fieldset>
                 </div>
 
-
+                {% if data['have-nhs-login'] == "Yes" %}
+                <button class="govuk-button" data-module="govuk-button">
+                    Save and continue
+                </button>
+                {% else %}
                 <button class="govuk-button" data-module="govuk-button">
                     Continue
                 </button>
+                {% endif %}
+
+
 
             </form>
     </div>
