@@ -17,9 +17,18 @@ Question page
 
         <h2 class="govuk-heading-m">Confirm the address where support is needed</h2>
 
+        {% if data['manualaddress'] == "Yes" %}
+        <p>{{ data['building_and_street_line_1'] }}<br />
+            {{ data['building_and_street_line_2'] }}<br />
+            {{ data['town_city'] }}<br />
+            {{ data['county'] }}<br />
+            {{ data['postcode'] }}</p>
+        {% else %}
         <p>{{ data['address'] }} Example Street<br />
             City<br />
             {{ data['postcode'] }}</p>
+        {% endif %}
+
 
         <a href="address-2" class="govuk-link">I need support at a different address</a> <br /><br /><br />
 
