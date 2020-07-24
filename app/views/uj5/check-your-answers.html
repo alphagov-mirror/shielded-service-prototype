@@ -28,11 +28,10 @@ Question page
             {{ data['postcode'] }}</p>
         {% endif %}
 
-        <form id="addresschange" method="post" action="check-your-answers">
+        <form class="form" id="addresschange" method="post" action="/uj5/address-2">
             <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
-            <a href="address-2" class="govuk-link" onclick="this.closest('addresschange').submit();return false;">I need support at a different address</a>
+            <a href="javascript:{}" onclick="document.getElementById('addresschange').submit(); return false;">I need support at a different address</a>
         </form>
-
 
         <br /><br /><br />
 
@@ -44,9 +43,9 @@ Question page
 
         <p>{{ data['first-name'] }} {{ data['middle-name'] }} {{ data['last-name'] }}</p>
 
-        <form id="namechange" method="post" action="check-your-answers">
+        <form id="namechange" method="post" action="/uj5/name">
             <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
-            <a href="name" class="govuk-link" onclick="this.closest('namechange').submit();return false;">Change your details</a>
+            <a href="javascript:{}" onclick="document.getElementById('namechange').submit();return false;">Change your details</a>
         </form>
 
         <br /><br /><br />
@@ -73,9 +72,9 @@ Question page
         <p>Phone number (for texts): {{ data['telephone-number-text'] }}</p>
         <p>Email: {{ data['email'] }}</p>
 
-        <form id="contactchange" method="post" action="check-your-answers">
+        <form id="contactchange" method="post" action="/uj5/contact-details">
             <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
-            <a href="contact-details" class="govuk-link" onclick="this.closest('contactchange').submit();return false;">Change your contact details</a>
+            <a href="javascript:{}" onclick="document.getElementById('contactchange').submit();return false;">Change your contact details</a>
         </form>
 
         <br /><br /><br />
@@ -89,9 +88,9 @@ Question page
 
         <p>{{ data['supermarket'] }}</p>
 
-        <form id="supermarketschange" method="post" action="check-your-answers">
+        <form id="supermarketschange" method="post" action="/uj5/supermarkets">
             <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
-            <a href="supermarkets" class="govuk-link" onclick="this.closest('supermarketschange').submit();return false;">Change</a>
+            <a href="javascript:{}" onclick="document.getElementById('supermarketschange').submit();return false;">Change</a>
         </form>
 
 
@@ -107,9 +106,9 @@ Question page
 
         <p>{{ data['care-more-detail'] }}</p>
 
-        <form id="basiccareneedschange" method="post" action="check-your-answers">
+        <form id="basiccareneedschange" method="post" action="/uj5/basic-care-needs">
             <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
-            <a href="basic-care-needs" class="govuk-link" onclick="this.closest('basiccareneedschange').submit();return false;">Change</a>
+            <a href="javascript:{}" onclick="document.getElementById('basiccareneedschange').submit();return false;">Change</a>
         </form>
 
         <br /><br /><br />
