@@ -19,9 +19,11 @@ Question page
 
         <br />
 
-        <a href="https://svps-nhs-login.herokuapp.com/uj5/enter-email">
-            <img src="../../../public/images/NHS-login-buttons/3x/RegisterUsing_Original@3x.png" style="max-width: 320px;">
-        </a>
+        <form class="form" id="suppressregoffer" method="post" action="https://svps-nhs-login.herokuapp.com/uj5/enter-email">
+            <input type="hidden" id="account-previous" name="suppressregoffer" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('suppressregoffer').submit(); return false;"><img src="../../../public/images/NHS-login-buttons/3x/RegisterUsing_Original@3x.png" style="max-width: 320px;"></a>
+        </form>
+
 
     </div>
 </div>
