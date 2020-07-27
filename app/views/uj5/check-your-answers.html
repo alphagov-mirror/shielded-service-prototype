@@ -155,7 +155,7 @@ Question page
 
         <br />
 
-        {% if data.yourself == "Myself" %}
+        {% if data.yourself == "Myself" or data.check-your-answers-2 == "Yes" %}
 
         <a href="set-up-login">
             <button class="govuk-button" data-module="govuk-button">
@@ -172,8 +172,6 @@ Question page
 
         <br /><br />
         {% endif %}
-
-
 
     </div>
 </div>
