@@ -41,7 +41,20 @@ Question page
 
         <h2 class="govuk-heading-m">Name</h2>
 
-        <p>{{ data['first-name'] }} {{ data['middle-name'] }} {{ data['last-name'] }}</p>
+        <p>{% if data['first-name'] %}
+            {{ data['first-name'] }}
+            {% else %}
+            Joe
+            {% endif %}
+            {% if data['middle-name'] %}
+            {{ data['middle-name'] }}
+            {% endif %}
+            {% if data['last-name'] %}
+            {{ data['last-name'] }}
+            {% else %}
+            Bloggs
+            {% endif %}
+        </p>
 
         <form id="namechange" method="post" action="/uj5/name">
             <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
@@ -56,7 +69,24 @@ Question page
 
         <h2 class="govuk-heading-m">Date of birth</h2>
 
-        <p>{{ data['dob-day'] }}-{{ data['dob-month'] }}-{{ data['dob-year'] }}</p>
+        <p>{% if data['dob-day'] %}
+            {{ data['dob-day'] }}
+            {% else %}
+            12
+            {% endif %}
+            -
+            {% if data['dob-month'] %}
+            {{ data['dob-month'] }}
+            {% else %}
+            11
+            {% endif %}
+            -
+            {% if data['dob-year'] %}
+            {{ data['dob-year'] }}
+            {% else %}
+            1979
+            {% endif %}
+        </p>
 
 
         <a href="date-of-birth" class="govuk-link">Change</a>
