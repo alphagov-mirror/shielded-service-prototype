@@ -50,13 +50,13 @@ Question page
                         <input class="govuk-input govuk-input--width-20" id="email" name="email" type="email" aria-describedby="email-hint" autocomplete="email" spellcheck="false" value="newuser@com">
                     </div>
 
+                    <input type="hidden" id="contact-details-2" name="contact-details-2" value="Yes">
+
                     {% if data['check-your-answers-previous'] == "Yes" or data['account-previous'] == "Yes" %}
                     <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Save and continue</button>
                     {% else %}
                     <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Continue</button>
                     {% endif %}
-
-                    <input type="hidden" id="contact-details-2" name="contact-details-2" value="Yes">
 
                 </form>
 
