@@ -5,7 +5,11 @@ Question page
 {% endblock %}
 
 {% block beforeContent %}
+{% if data['check-your-answers-previous'] == "Yes" %}
+{% else %}
 <a class="govuk-back-link" href="name">Back</a>
+{% endif %}
+
 {% endblock %}
 
 {% block content %}
