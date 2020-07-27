@@ -155,9 +155,9 @@ Question page
 
         <br />
 
-        {% if data.yourself == "Myself" or data.check-your-answers-2 == "Yes" %}
+        {% if data.contact-details-2 == "Yes" %}
 
-        <a href="set-up-login">
+        <a href="confirmation">
             <button class="govuk-button" data-module="govuk-button">
                 Accept and send
             </button></a>
@@ -165,7 +165,8 @@ Question page
         <br /><br />
 
         {% else %}
-        <a href="confirmation">
+
+        <a href="set-up-login">
             <button class="govuk-button" data-module="govuk-button">
                 Accept and send
             </button></a>
