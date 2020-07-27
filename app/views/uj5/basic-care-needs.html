@@ -22,7 +22,7 @@ Question page
         {% if data['check-your-answers-previous'] == "Yes" %}
         <form class="form" action="/uj5/check-your-answers" method="post">
             {% elif data['account-previous'] == "Yes" %}
-            <form class="form" action="/uj5/account " method="post">
+            <form class="form" action="/uj5/updated" method="post">
                 {% else %}
                 <form class="form" action="/uj5/check-your-answers" method="post">
                     {% endif %}

@@ -4,8 +4,9 @@
 Question page
 {% endblock %}
 
+
 {% block beforeContent %}
-<a class="govuk-back-link" href="17">Back</a>
+<!-- <a class="govuk-back-link" href="17">Back</a> -->
 {% endblock %}
 
 {% block content %}
@@ -23,10 +24,13 @@ Question page
             {{ data['town_city'] }}<br />
             {{ data['postcode'] }}</p>
         {% else %}
-        <p>{{ data['address'] }} Example Street<br />
+        <p>3 Example Street<br />
             Leeds<br />
-            {{ data['postcode'] }}</p>
-        {% endif %}
+            LS1 1AH
+            {% endif %}
+            <br />
+        </p>
+
 
         <form class="form" id="addresschange" method="post" action="/uj5/address-2">
             <input type="hidden" id="account-previous" name="account-previous" value="Yes">
@@ -64,10 +68,27 @@ Question page
 
         <h2 class="govuk-heading-m">Date of birth</h2>
 
-        <p>{{ data['dob-day'] }}-{{ data['dob-month'] }}-{{ data['dob-year'] }}</p>
+        <p>{% if data['dob-day'] %}
+            {{ data['dob-day'] }}
+            {% else %}
+            12
+            {% endif %}
+            -
+            {% if data['dob-month'] %}
+            {{ data['dob-month'] }}
+            {% else %}
+            11
+            {% endif %}
+            -
+            {% if data['dob-year'] %}
+            {{ data['dob-year'] }}
+            {% else %}
+            1979
+            {% endif %}
+        </p>
 
 
-        <a href="date-of-birth" class="govuk-link">Change your date of birth</a> <br /><br /><br />
+        <a href="date-of-birth" class="govuk-link">Change</a> <br /><br /><br />
 
         <hr>
 
@@ -96,7 +117,7 @@ Question page
 
         <form class="form" id="contactchange" method="post" action="/uj5/contact-details">
             <input type="hidden" id="account-previous" name="account-previous" value="Yes">
-            <a href="javascript:{}" onclick="document.getElementById('contactchange').submit(); return false;">Change contact details</a>
+            <a href="javascript:{}" onclick="document.getElementById('contactchange').submit(); return false;">Change</a>
         </form>
 
 
