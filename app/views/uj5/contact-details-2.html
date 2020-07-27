@@ -23,42 +23,40 @@ Question page
 
         {% if data['check-your-answers-previous'] == "Yes" %}
         <form class="form" action="/uj5/check-your-answers" method="post">
-            {% elif data['account-previous'] == "Yes" %}
-            <form class="form" action="/uj5/updated" method="post">
+            {% else %}
+            <form class="form" action="/uj5/supermarkets" method="post">
+                {% endif %}
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="telephone-number">
+                        Phone Number (for phone calls)
+                    </label>
+                    <input class="govuk-input govuk-input--width-20" id="telephone-number" name="telephone-number" type="tel" autocomplete="tel" value="07123456789">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="telephone-number">
+                        Phone Number (for text messages)
+                    </label>
+                    <input class="govuk-input govuk-input--width-20" id="telephone-number-text" name="telephone-number-text" type="tel" autocomplete="tel" value="07123456789">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="email">
+                        Email address
+                    </label>
+                    <input class="govuk-input govuk-input--width-20" id="email" name="email" type="email" aria-describedby="email-hint" autocomplete="email" spellcheck="false" value="newuser@com">
+                </div>
+
+                <input type="hidden" id="contact-details-2" name="contactdetails2" value="Yes">
+
+                {% if data['check-your-answers-previous'] == "Yes" or data['account-previous'] == "Yes" %}
+                <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Save and continue</button>
                 {% else %}
-                <form class="form" action="/uj5/supermarkets" method="post">
-                    {% endif %}
+                <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Continue</button>
+                {% endif %}
 
-                    <div class="govuk-form-group">
-                        <label class="govuk-label" for="telephone-number">
-                            Phone Number (for phone calls)
-                        </label>
-                        <input class="govuk-input govuk-input--width-20" id="telephone-number" name="telephone-number" type="tel" autocomplete="tel" value="07123456789">
-                    </div>
-
-                    <div class="govuk-form-group">
-                        <label class="govuk-label" for="telephone-number">
-                            Phone Number (for text messages)
-                        </label>
-                        <input class="govuk-input govuk-input--width-20" id="telephone-number-text" name="telephone-number-text" type="tel" autocomplete="tel" value="07123456789">
-                    </div>
-
-                    <div class="govuk-form-group">
-                        <label class="govuk-label" for="email">
-                            Email address
-                        </label>
-                        <input class="govuk-input govuk-input--width-20" id="email" name="email" type="email" aria-describedby="email-hint" autocomplete="email" spellcheck="false" value="newuser@com">
-                    </div>
-
-                    <input type="hidden" id="contact-details-2" name="contact-details-2" value="Yes">
-
-                    {% if data['check-your-answers-previous'] == "Yes" or data['account-previous'] == "Yes" %}
-                    <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Save and continue</button>
-                    {% else %}
-                    <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Continue</button>
-                    {% endif %}
-
-                </form>
+            </form>
 
     </div>
 </div>
