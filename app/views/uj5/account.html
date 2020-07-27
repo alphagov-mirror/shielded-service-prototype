@@ -30,7 +30,7 @@ Question page
 
         <form class="form" id="addresschange" method="post" action="/uj5/address-2">
             <input type="hidden" id="account-previous" name="account-previous" value="Yes">
-            <a href="javascript:{}" onclick="document.getElementById('addresschange').submit(); return false;">I need support at a different address</a>
+            <a href="javascript:{}" onclick="document.getElementById('addresschange').submit(); return false;">Change</a>
         </form>
 
         <br /><br /><br />
@@ -39,7 +39,7 @@ Question page
 
         <br />
 
-        <h2 class="govuk-heading-m">Your details</h2>
+        <h2 class="govuk-heading-m">Name</h2>
 
         <p>{% if data['first-name'] %}
             {{ data['first-name'] }}
@@ -62,7 +62,7 @@ Question page
 
         <br />
 
-        <!--  <h2 class="govuk-heading-m">Confirm your date of birth</h2>
+        <h2 class="govuk-heading-m">Date of birth</h2>
 
         <p>{{ data['dob-day'] }}-{{ data['dob-month'] }}-{{ data['dob-year'] }}</p>
 
@@ -71,9 +71,9 @@ Question page
 
         <hr>
 
-        <br /> -->
+        <br />
 
-        <h2 class="govuk-heading-m">Your contact details</h2>
+        <h2 class="govuk-heading-m">Contact details</h2>
 
 
         <p>Phone number (for calls): {% if data['telephone-number'] %}

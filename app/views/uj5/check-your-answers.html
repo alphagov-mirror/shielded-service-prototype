@@ -15,7 +15,7 @@ Question page
 
         <h1 class="govuk-heading-xl">Check your answers before submitting</h1>
 
-        <h2 class="govuk-heading-m">Confirm the address where support is needed</h2>
+        <h2 class="govuk-heading-m">The address where support is needed</h2>
 
         {% if data['manualaddress'] == "Yes" %}
         <p>{{ data['building_and_street_line_1'] }}<br />
@@ -30,7 +30,7 @@ Question page
 
         <form class="form" id="addresschange" method="post" action="/uj5/address-2">
             <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
-            <a href="javascript:{}" onclick="document.getElementById('addresschange').submit(); return false;">I need support at a different address</a>
+            <a href="javascript:{}" onclick="document.getElementById('addresschange').submit(); return false;">Change</a>
         </form>
 
         <br /><br /><br />
@@ -39,7 +39,7 @@ Question page
 
         <br />
 
-        <h2 class="govuk-heading-m">Confirm your details</h2>
+        <h2 class="govuk-heading-m">Name</h2>
 
         <p>{{ data['first-name'] }} {{ data['middle-name'] }} {{ data['last-name'] }}</p>
 
@@ -54,7 +54,7 @@ Question page
 
         <br />
 
-        <h2 class="govuk-heading-m">Confirm your date of birth</h2>
+        <h2 class="govuk-heading-m">Date of birth</h2>
 
         <p>{{ data['dob-day'] }}-{{ data['dob-month'] }}-{{ data['dob-year'] }}</p>
 
@@ -67,7 +67,7 @@ Question page
 
         <br />
 
-        <h2 class="govuk-heading-m">Confirm your contact details</h2>
+        <h2 class="govuk-heading-m">Contact details</h2>
 
 
         <p>Phone number (for calls): {{ data['telephone-number'] }}</p>
