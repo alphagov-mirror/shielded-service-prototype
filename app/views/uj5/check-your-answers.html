@@ -33,7 +33,7 @@ Question page
             <a href="javascript:{}" onclick="document.getElementById('addresschange').submit(); return false;">Change</a>
         </form>
 
-        <br /><br /><br />
+        <br /><br />
 
         <hr>
 
@@ -56,12 +56,16 @@ Question page
             {% endif %}
         </p>
 
+        {% if data['contactdetails2'] == "Yes" %}
+        &nbsp;
+        {% else %}
         <form id="namechange" method="post" action="/uj5/name">
             <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
             <a href="javascript:{}" onclick="document.getElementById('namechange').submit();return false;">Change</a>
         </form>
+        {% endif %}
 
-        <br /><br /><br />
+        <br /><br />
 
         <hr>
 
@@ -99,7 +103,7 @@ Question page
         {% endif %}
 
 
-        <br /><br /><br />
+        <br /><br />
 
         <hr>
 
@@ -113,7 +117,7 @@ Question page
         <p>Email: {{ data['email'] }}</p>
 
 
-        <br /><br /><br />
+        <br /><br />
 
         <hr>
 
@@ -130,7 +134,7 @@ Question page
         </form>
 
 
-        <br /><br /><br />
+        <br /><br />
 
         <hr>
 
@@ -147,7 +151,7 @@ Question page
             <a href="javascript:{}" onclick="document.getElementById('basiccareneedschange').submit();return false;">Change</a>
         </form>
 
-        <br /><br /><br />
+        <br /><br />
 
         <hr>
 
