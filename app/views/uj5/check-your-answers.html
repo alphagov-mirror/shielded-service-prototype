@@ -88,8 +88,16 @@ Question page
             {% endif %}
         </p>
 
+        {% if data['contactdetails2'] == "Yes" %}
+        &nbsp;
+        {% else %}
+        <form id="dobchange" method="post" action="/uj5/date-of-birth">
+            <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('contactchange').submit();return false;">Change</a>
+        </form>
 
-        <a href="date-of-birth" class="govuk-link">Change</a>
+        {% endif %}
+
 
         <br /><br /><br />
 
@@ -104,10 +112,6 @@ Question page
         <p>Phone number (for texts): {{ data['telephone-number-text'] }}</p>
         <p>Email: {{ data['email'] }}</p>
 
-        <form id="contactchange" method="post" action="/uj5/contact-details">
-            <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
-            <a href="javascript:{}" onclick="document.getElementById('contactchange').submit();return false;">Change</a>
-        </form>
 
         <br /><br /><br />
 
