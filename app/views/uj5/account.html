@@ -18,26 +18,25 @@ Question page
 
         <h2 class="govuk-heading-m">The address where support is needed</h2>
 
-        {% if data['manualaddress'] == "Yes" %}
-        <p>{{ data['building_and_street_line_1'] }}<br />
+        <p>
+            {% if data['manualaddress'] == "Yes" %}
+            {{ data['building_and_street_line_1'] }}<br />
             {{ data['building_and_street_line_2'] }}<br />
             {{ data['town_city'] }}<br />
-            {{ data['postcode'] }}</p>
-        {% else %}
-        <p>3 Example Street<br />
+            {{ data['postcode'] }}
+            {% else %}
+            3 Example Street<br />
             Leeds<br />
             LS1 1AH
             {% endif %}
-            <br />
         </p>
-
 
         <form class="form" id="addresschange" method="post" action="/uj5/address-2">
             <input type="hidden" id="account-previous" name="account-previous" value="Yes">
             <a href="javascript:{}" onclick="document.getElementById('addresschange').submit(); return false;">Change</a>
         </form>
 
-        <br /><br /><br />
+        <br /><br />
 
         <hr>
 
@@ -60,7 +59,7 @@ Question page
             {% endif %}
         </p>
 
-        <!--    <a href="name" class="govuk-link">Change your name</a> --> <br /><br /><br />
+        <!--    <a href="name" class="govuk-link">Change your name</a> --> <br /><br />
 
         <hr>
 
@@ -90,7 +89,7 @@ Question page
 
         <!--     <a href="date-of-birth" class="govuk-link">Change</a> -->
 
-        <br /><br /><br />
+        <br /><br />
 
         <hr>
 
@@ -123,7 +122,7 @@ Question page
         </form>
 
 
-        <br /><br /><br />
+        <br /><br />
 
         <hr>
 
@@ -143,7 +142,7 @@ Question page
             <a href="javascript:{}" onclick="document.getElementById('supermarketschange').submit(); return false;">Change</a>
         </form>
 
-        <br /><br /><br />
+        <br /><br />
 
         <hr>
 
@@ -164,7 +163,7 @@ Question page
             <a href="javascript:{}" onclick="document.getElementById('basic-care-needs-change').submit(); return false;">Change</a>
         </form>
 
-        <br /><br /><br />
+        <br /><br />
 
 
         <!--   <h2 class="govuk-heading-m">Now send your application</h2>
