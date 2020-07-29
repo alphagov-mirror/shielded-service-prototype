@@ -155,7 +155,11 @@ Question page
 
         <p>{{ data['care-needs'] }}</p>
 
+        {% if data['care-more-detail'] %}
         <p>{{ data['care-more-detail'] }}</p>
+        {% else %}
+        &nbsp;
+        {% endif %}
 
         <form id="basiccareneedschange" method="post" action="/uj5/basic-care-needs">
             <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">

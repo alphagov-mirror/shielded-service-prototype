@@ -156,7 +156,11 @@ Question page
             No
             {% endif %}</p>
 
+        {% if data['care-more-detail'] %}
         <p>{{ data['care-more-detail'] }}</p>
+        {% else %}
+        &nbsp;
+        {% endif %}
 
         <form class="form" id="basic-care-needs-change" method="post" action="/uj5/basic-care-needs">
             <input type="hidden" id="account-previous" name="account-previous" value="Yes">
