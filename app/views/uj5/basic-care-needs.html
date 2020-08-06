@@ -17,7 +17,7 @@ Question page
 
         <h1 class="govuk-heading-xl">Do you need help meeting your basic care needs?</h1>
 
-        <p>For example, you do not have family, friends or neighbours who can help you wash, bathe and keep your house clean if you need them to.</p>
+        <p>For example because there’s no one in your household who can help you wash, bathe and keep your house clean if you need them to.</p>
 
         {% if data['check-your-answers-previous'] == "Yes" %}
         <form class="form" action="/uj5/check-your-answers" method="post">
@@ -34,7 +34,7 @@ Question page
                                 <div class="govuk-radios__item">
                                     <input class="govuk-radios__input" id="more-care-info" name="care-needs" type="radio" data-aria-controls="more-care-info-conditional" value="Yes" {{ checked("care-needs", "Yes") }}>
                                     <label class="govuk-label govuk-radios__label" for="more-care-info">
-                                        Yes
+                                        Yes, I need help meeting my basic care needs
                                     </label>
                                 </div>
                                 <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="more-care-info-conditional">
@@ -49,7 +49,7 @@ Question page
                                 <div class="govuk-radios__item">
                                     <input class="govuk-radios__input" id="how-contacted-conditional-2" name="care-needs" type="radio" value="No" {{ checked("care-needs", "No") }}>
                                     <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
-                                        No
+                                        No, I do not need help meeting my basic care needs
                                     </label>
                                 </div>
 
