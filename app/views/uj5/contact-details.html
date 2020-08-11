@@ -30,7 +30,7 @@ Question page
             {% elif data['account-previous'] == "Yes" %}
             <form class="form" action="/uj5/updated" method="post">
                 {% else %}
-                <form class="form" action="/uj5/check-your-answers" method="post">
+                <form class="form" action="/uj5/check-your-answers" method="post" novalidate>
                     {% endif %}
 
                     <div class="govuk-form-group">
