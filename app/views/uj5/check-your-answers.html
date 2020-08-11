@@ -178,24 +178,18 @@ Question page
 
         <br />
 
-        {% if data['contactdetails2'] == "Yes" %}
+        {% if data['yourself'] == "Myself" %}
 
-        <a href="confirmation">
-            <button class="govuk-button" data-module="govuk-button">
-                Accept and send
-            </button></a>
-
-        <br /><br />
+            {{ govukButton({ text: "Accept and send", href:"set-up-login"})}}
 
         {% else %}
 
-        <a href="set-up-login">
-            <button class="govuk-button" data-module="govuk-button">
-                Accept and send
-            </button></a>
+            {{ govukButton({ text: "Accept and send", href:"confirmation"})}}
 
-        <br /><br />
         {% endif %}
+
+        <br />
+        <br />
 
     </div>
 </div>
