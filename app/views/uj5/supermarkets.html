@@ -15,7 +15,8 @@ Question page
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-l">Do you want access to priority supermarket deliveries?
+        <h1 class="govuk-heading-l">
+            Do you want access to priority supermarket deliveries?
         </h1>
 
         {% if data['check-your-answers-previous'] == "Yes" %}
@@ -23,8 +24,10 @@ Question page
             {% elif data['account-previous'] == "Yes" %}
             <form class="form" action="/uj5/updated" method="post">
                 {% else %}
-                <form class="form" action="/uj5/basic-care-needs" method="post">
+                <form class="form" action="/uj5/someone-to-go-shopping" method="post">
                     {% endif %}
+
+                    <p>This just gives you priority. It does not mean that you'll definitely be able to get a delivery slot.</p>
 
                     <div class="govuk-form-group">
                         <fieldset class="govuk-fieldset">
@@ -38,10 +41,10 @@ Question page
                                     </label>
                                 
                                 </div>
-                                
+{#                                 
                                 <div class="govuk-radios__conditional" id="conditional-supermarket">
                                     <p>This does not guarantee you a delivery slot. If you think you might run out of supplies, contact your local council as soon as possible. We'll give you a link when you've finished answering the questions.</p>
-                                </div>
+                                </div> #}
                                 
                                 <div class="govuk-radios__item">
                                     <input class="govuk-radios__input" id="supermarket-2" name="supermarket" type="radio" value="No">
