@@ -4,10 +4,6 @@
 Question page
 {% endblock %}
 
-{% block beforeContent %}
-<!-- <a class="govuk-back-link" href="17">Back</a> -->
-{% endblock %}
-
 {% block content %}
 
 <div class="govuk-grid-row">
@@ -15,11 +11,15 @@ Question page
 
         <h1 class="govuk-heading-l">We have received your application</h1>
 
-        <h2 class="govuk-heading-l"> Would you like to create an account?</h2>
+        <h2 class="govuk-heading-m"> Would you like to create an account?</h2>
 
-        <p>This will make it easier and faster to check and update your details in future.</p>
+        <p>An account:</p>
 
-        <p>It takes about 5 minutes</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>makes it easier to update your details</li>
+            <li>lets you access other NHS services</li>
+            <li>takes about 5 minutes to set up</li>
+        </ul>
 
         <br />
 
