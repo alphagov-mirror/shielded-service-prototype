@@ -15,41 +15,42 @@ Question page
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-l">
-            While you’re shielding, is there someone you can rely on to go shopping for you if you need them to?
-        </h1>
-
         {% if data['check-your-answers-previous'] == "Yes" %}
         <form class="form" action="/uj5/check-your-answers" method="post">
             {% elif data['account-previous'] == "Yes" %}
             <form class="form" action="/uj5/updated" method="post">
                 {% else %}
-                <form class="form" action="/uj5/basic-care-needs" method="post">
+                <form class="form" action="/uj5/supermarkets" method="post">
                     {% endif %}
 
-                    <p>For example a friend, neighbour or family member.</p>
-
                     <div class="govuk-form-group">
-                        <fieldset class="govuk-fieldset">
-
-                            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
-
-                                <div class="govuk-radios__item">
-                                    <input class="govuk-radios__input" id="someone-to-shop" name="someone-to-shop" type="radio" value="Yes">
-                                    <label class="govuk-label govuk-radios__label" for="someone-to-shop">
-                                        Yes
-                                    </label>
-                                
-                                </div>
-                                
-                                <div class="govuk-radios__item">
-                                    <input class="govuk-radios__input" id="someone-to-shop-2" name="someone-to-shop" type="radio" value="No">
-                                    <label class="govuk-label govuk-radios__label" for="someone-to-shop-2">
-                                        No
-                                    </label>
-                                </div>
-                            </div>
-                        </fieldset>
+                        {{ govukRadios({
+                            idPrefix: "someone-to-go-shopping",
+                            name: "someone-to-go-shopping",
+                            fieldset: {
+                                legend: {
+                                    text: "While you’re shielding, is there someone you can rely on to go shopping for you if you need them to?",
+                                    isPageHeading: true,
+                                    classes: "govuk-fieldset__legend--l"
+                                }
+                            },
+                            hint: {
+                                text: "For example a friend, neighbour or family member."
+                            },
+                            items: [
+                                {
+                                    value: "Yes",
+                                    text: "Yes",
+                                    conditional: {
+                                        html: '<p class="govuk-body">If this changes you need to come back and tell us.</p>'
+                                    }
+                                },
+                                {
+                                    value: "No",
+                                    text: "No"
+                                }
+                            ]
+                            }) }}
                     </div>
 
                     {% if data['check-your-answers-previous'] == "Yes" or data['account-previous'] == "Yes" %}
