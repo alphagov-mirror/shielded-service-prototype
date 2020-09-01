@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+{% if data['check-your-answers-previous'] == "Yes" %}
+{% else %}
+<a class="govuk-back-link" href="contact-details">Back</a>
+{% endif %}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {% if data['check-your-answers-previous'] == "Yes" %}
+        <form class="form" action="/uj5/check-your-answers" method="post">
+            {% elif data['account-previous'] == "Yes" %}
+            <form class="form" action="/uj5/updated" method="post">
+                {% else %}
+                <form class="form" action="/uj5/supermarkets" method="post">
+                    {% endif %}
+
+                    <div class="govuk-form-group">
+                        {{ govukRadios({
+                            idPrefix: "someone-to-go-shopping",
+                            name: "someone-to-go-shopping",
+                            fieldset: {
+                                legend: {
+                                    text: "While you’re shielding, is there someone you can rely on to go shopping for you if you need them to?",
+                                    isPageHeading: true,
+                                    classes: "govuk-fieldset__legend--l"
+                                }
+                            },
+                            hint: {
+                                text: "For example a friend, neighbour or family member."
+                            },
+                            items: [
+                                {
+                                    value: "Yes",
+                                    text: "Yes",
+                                    conditional: {
+                                        html: '<p class="govuk-body">If this changes you need to come back and tell us.</p>'
+                                    }
+                                },
+                                {
+                                    value: "No",
+                                    text: "No"
+                                }
+                            ]
+                            }) }}
+                    </div>
+
+                    {% if data['check-your-answers-previous'] == "Yes" or data['account-previous'] == "Yes" %}
+                        <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Save and continue</button>
+                    {% else %}
+                        <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Continue</button>
+                    {% endif %}
+
+                </form>
+
+                
+
+    </div>
+</div>
+
+{% endblock %}

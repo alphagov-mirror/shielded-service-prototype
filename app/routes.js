@@ -354,4 +354,16 @@ router.post('/uj5/has-nhs-login', function (req, res) {
     }
 })
 
+router.get('/uj5/supermarkets', function (req, res) {
+
+    var someoneToGoShopping = req.session.data['someone-to-go-shopping']
+
+    // only show supermarkets question to people who have no one to go shopping
+    if (someoneToGoShopping == "No") {
+        res.render('uj5/supermarkets')
+    } else {
+        res.redirect('/uj5/basic-care-needs')
+    }
+})
+
 module.exports = router
