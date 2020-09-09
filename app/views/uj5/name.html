@@ -19,6 +19,8 @@ Question page
 
         <h1 class="govuk-heading-l">What is your name?</h1>
 
+        <p class="govuk-body">If you’re registering on behalf of a shielding person, use their details.</p>
+
         {% if data['check-your-answers-previous'] == "Yes" %}
         <form class="form" action="/uj5/check-your-answers" method="post">
             {% elif data['account-previous'] == "Yes" %}
