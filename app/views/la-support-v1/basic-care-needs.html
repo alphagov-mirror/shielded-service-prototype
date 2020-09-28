@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+{% if data['check-your-answers-previous'] == "Yes" %}
+{% else %}
+<a class="govuk-back-link" href="/records/0111053029/summary">Back</a>
+{% endif %}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Do this person need help meeting their basic care needs?</h1>
+
+        <p>For example because there’s no one in their household who can help them wash, bathe and keep their house clean.</p>
+
+
+        <form class="form" action="/records/0111053029/summary" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
+
+                    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="more-care-info" name="care-needs" type="radio" data-aria-controls="more-care-info-conditional" value="Yes, they need help meeting their basic care needs" {{ checked("care-needs", "Yes, they need help meeting their basic care needs") }}>
+                            <label class="govuk-label govuk-radios__label" for="more-care-info">
+                                Yes, they need help meeting their basic care needs
+                            </label>
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="more-care-info-conditional">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label" for="more-care-info-cond">
+                                    More details (optional)
+                                </label>
+                                <textarea class="govuk-textarea" id="more-detail" name="care-more-detail" rows="5" aria-describedby="more-detail-hint">{{ data['care-more-detail'] }}</textarea>
+                            </div>
+
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="how-contacted-conditional-2" name="care-needs" type="radio" value="No, they do not need help meeting their basic care needs" {{ checked("care-needs", "No, they do not need help meeting their basic care needs") }}>
+                            <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
+                                No, they do not need help meeting their basic care needs
+                            </label>
+                        </div>
+
+                        <input type="hidden" id="hidden" name="edittoggle" value="Yes">
+
+                    </div>
+                </fieldset>
+            </div>
+
+            <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Save and continue</button>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

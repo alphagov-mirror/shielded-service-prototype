@@ -1,0 +1,257 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+NHS: {{ summary.nhsNumber }} - SVP Support Toolkit
+{% endblock %}
+
+{% block beforeAppContent %}
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="/home">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link">NHS number: {{ summary.nhsNumber }}</a>
+        </li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-three-quarters">
+        <h1 class="govuk-heading-xl">
+            <span class="govuk-caption-xl">Summary</span>
+            NHS: {{summary.nhsNumber }}
+        </h1>
+        <ul class="govuk-list">
+            <li>
+                <a class="govuk-link">Summary</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a class="govuk-link" href="timeline">Timeline</a>
+            </li>
+            <br />
+        </ul>
+    </div>
+    <div class="govuk-grid-column-one-quarter">
+        &nbsp;
+    </div>
+</div>
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-three-quarters">
+
+        <section class="govuk-!-margin-bottom-9">
+            <h2 class="govuk-heading-m">Personal details</h2>
+            {% if summary.deceased %}<p><strong class="govuk-tag">Deceased</strong></p>{% endif %}
+
+            <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ summary.name }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Date of birth
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ summary.dob }}
+                    </dd>
+
+                    <dd class="govuk-summary-list__actions">
+
+                    </dd>
+                </div>
+                {% if summary.deceased  %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Date of death
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ summary.dod}}
+                    </dd>
+
+                    <dd class="govuk-summary-list__actions">
+
+                    </dd>
+                </div>
+                {% endif %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Latest address
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {% for line in summary.latestAddress %}
+                        {{ line }}{% if not loop.last %}<br />{% endif %}
+                        {% endfor %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Address from NHS
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {% for line in summary.nhsAddress %}
+                        {{ line }}{% if not loop.last %}<br />{% endif %}
+                        {% endfor %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Local Authority
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ summary.latestAddressLA }}
+                        {% if summary.latestAddressLA != summary.nhsAddressLA %}
+                        <br /> {{ summary.nhsAddressLA }} (NHS address)
+                        {% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Phone number
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        <p class="govuk-body">{{ summary.phone }}</p>
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="summary/edit_phone_number">
+                            Change<span class="govuk-visually-hidden"> phone number</span>
+                        </a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        E-mail
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        <p class="govuk-body">{{ summary.email }}</p>
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="summary/edit_email">
+                            Change<span class="govuk-visually-hidden"> email</span>
+                        </a>
+                    </dd>
+                </div>
+            </dl>
+        </section>
+
+        <section class="govuk-!-margin-bottom-9">
+            <h2 class="govuk-heading-m">Shielded Patient status</h2>
+
+            <table class="govuk-table">
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">
+                            Is this person on the SPL?
+                        </td>
+                        <td class="govuk-table__cell">
+                            {% if spl.value %}
+                            <strong class="govuk-tag">
+                                Yes
+                            </strong>
+                            {% else %}
+                            <strong class="govuk-tag govuk-tag--grey">
+                                No
+                            </strong>
+                            {% endif %}
+                        </td>
+                        <td class="govuk-table__cell">
+                            {% if spl.action %}{{ spl.action }} <br />{% endif %}
+                            {{ spl.date }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        {% if spl.value %}
+        <section class="govuk-!-margin-bottom-9">
+            <h2 class="govuk-heading-m">Support needs</h2>
+
+            <dl class="govuk-summary-list">
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Shopping support
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        <p class="govuk-body">
+                            {{ data['someone-to-go-shopping'] }}</p>
+
+                        {% if data['priority-slots'] == "Yes" %}
+
+                        <p class="govuk-body">
+                            Yes, they require priority supermarket delivery slots</p>
+
+                        {% elif data['priority-slots'] == "No" %}
+
+                        <p class="govuk-body">
+                            No, they don't require priority supermarket delivery slots</p>
+
+                        {% else %}
+
+                        <p class="govuk-body">
+                            &nbsp;
+                            {% endif %}
+
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="../../la-support-v1/someone-to-go-shopping">
+                            Change<span class="govuk-visually-hidden"> shopping support</span>
+                        </a>
+                    </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Basic care needs
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        <p class="govuk-body">{{ data['care-needs'] }}</p>
+                        {% if data['care-more-detail'] %}
+                        <p>{{ data['care-more-detail'] }}</p>
+                        {% else %}
+                        &nbsp;
+                        {% endif %}
+
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="../../la-support-v1/basic-care-needs">
+                            Change<span class="govuk-visually-hidden"> basic care needs</span>
+                        </a>
+                    </dd>
+                </div>
+            </dl>
+        </section>
+        {% else %}
+        &nbsp;
+        {% endif %}
+
+        <br />
+        <p class="govuk-body"><a href="../../la-support-v1/home">Search for a different person</a></p>
+        <br />
+
+    </div>
+
+    <div class="govuk-grid-column-one-quarter">
+        &nbsp;
+    </div>
+
+</div>
+
+{% endblock %}

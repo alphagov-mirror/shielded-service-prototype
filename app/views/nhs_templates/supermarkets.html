@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{ summary.nhsNumber }} - Supermarkets
+{% endblock %}
+
+{% block beforeAppContent %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="/home">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="summary">NHS number: {{ summary.nhsNumber }}</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link">Supermarkets</a>
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter">
+        &nbsp;
+    </div>
+    <div class="govuk-grid-column-three-quarters">
+        <h1 class="govuk-heading-xl">
+            <span class="govuk-caption-xl">Supermarket matches</span>
+            NHS: {{summary.nhsNumber }}
+        </h1>
+    </div>
+</div>
+<div class="govuk-grid-row">
+    <nav class="govuk-grid-column-one-quarter">
+        <ul class="govuk-list">
+            <li>
+                <a class="govuk-link" href="summary">Summary</a>
+            </li>
+            <li>
+                Supermarkets
+            </li>
+            <li>
+                <a class="govuk-link" href="timeline">Timeline</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="govuk-grid-column-three-quarters">
+
+        <section class="govuk-!-margin-bottom-9">
+            <h2 class="govuk-heading-m">Supermarket priority summary</h2>
+
+            <table class="govuk-table">
+                <tbody class="govuk-table__body">
+
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                        Is this person registered?
+                    </td>
+                    <td class="govuk-table__cell">
+                        {% if supermarkets.registered.value %}
+                        <strong class="govuk-tag">
+                            Yes
+                        </strong>
+                        {% else %}
+                        <strong class="govuk-tag govuk-tag--grey">
+                            No
+                        </strong>
+                        {% endif %}
+                    </td>
+                    <td class="govuk-table__cell">
+                        {% if supermarkets.registered.action %}{{ supermarkets.registered.action }} <br/>{% endif %}
+                        {{ supermarkets.registered.date }}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            {% if not supermarkets.registered.value %}
+            <a class="govuk-button" href="supermarkets/register">Register this person with supermarkets now</a>
+            {% endif %}
+        </section>
+    </div>
+</div>
+
+{% endblock %}

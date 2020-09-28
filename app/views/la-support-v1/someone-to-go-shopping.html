@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+{% if data['check-your-answers-previous'] == "Yes" %}
+{% else %}
+<a class="govuk-back-link" href="contact-details">Back</a>
+{% endif %}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Does this person have someone they can rely on to go shopping for them?</h1>
+
+        <p>For example, a friend, family member or volunteer.</p>
+
+        <p>Priority supermarket slots are only available to people who do not have someone to go shopping for them.</p>
+
+        <br />
+
+        <form class="form" action="/records/0111053029/summary" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
+
+                    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="more-care-info" name="someone-to-go-shopping" type="radio" data-aria-controls="someone-to-go-shopping-yes" value="Yes, they have someone who can go shopping for them" {{ checked("someone-to-go-shopping", "Yes, they have someone who can go shopping for them") }}>
+                            <label class="govuk-label govuk-radios__label" for="more-care-info">
+                                Yes, they have someone who can go shopping for them
+                            </label>
+                        </div>
+                        <!--  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="someone-to-go-shopping-yes">
+                            <div class="govuk-form-group">
+                                <label class="govuk-label" for="someone-to-go-shopping-yes">
+                                    More details (optional)
+                                </label>
+                                <textarea class="govuk-textarea" id="more-detail" name="care-more-detail" rows="5" aria-describedby="more-detail-hint">{{ data['care-more-detail'] }}</textarea>
+                            </div>
+                        </div> -->
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="how-contacted-conditional-2" name="someone-to-go-shopping" type="radio" value="No, they don't have someone who can go shopping for them" data-aria-controls="someone-to-go-shopping-no" {{ checked("someone-to-go-shopping", "No, they don't have someone who can go shopping for them") }}>
+                            <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
+                                No, they don't have someone who can go shopping for them
+                            </label>
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="someone-to-go-shopping-no">
+                            <div class="govuk-form-group">
+                                <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+
+                                    <div id="changed-name-hint" class="govuk-hint">
+                                        Do they require priority supermarket delivery slots?
+                                    </div>
+                                    <div class="govuk-radios govuk-radios--inline">
+                                        <div class="govuk-radios__item">
+                                            <input class="govuk-radios__input" id="priority-slots" name="priority-slots" type="radio" value="Yes" {{ checked("priority-slots", "Yes") }}>
+                                            <label class="govuk-label govuk-radios__label" for="priority-slots">
+                                                Yes
+                                            </label>
+                                        </div>
+                                        <div class="govuk-radios__item">
+                                            <input class="govuk-radios__input" id="priority-slots-2" name="priority-slots" type="radio" value="No" {{ checked("priority-slots", "No") }}>
+                                            <label class="govuk-label govuk-radios__label" for="priority-slots-2">
+                                                No
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+                            </div>
+                        </div>
+                        <input type="hidden" id="hidden" name="edittoggle" value="Yes">
+
+                    </div>
+                </fieldset>
+            </div>
+
+            <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Save and continue</button>
+
+        </form>
+
+
+
+    </div>
+</div>
+
+{% endblock %}
