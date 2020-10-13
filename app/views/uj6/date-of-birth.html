@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+{% if data['check-your-answers-previous'] == "Yes" %}
+{% else %}
+<a class="govuk-back-link" href="name">Back</a>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l"> What is your date of birth?</h1>
+
+        <p class="govuk-body">If you’re registering for someone else, enter the date of birth for the person who is clinically extremely vulnerable.</p>
+
+        {% if data['check-your-answers-previous'] == "Yes" %}
+        <form class="form" action="/uj6/check-your-answers" method="post">
+            {% elif data['account-previous'] == "Yes" %}
+            <form class="form" action="/uj6/updated" method="post">
+                {% else %}
+                <form class="form" action="/uj6/address" method="post">
+                    {% endif %}
+
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+
+                            <span id="passport-issued-hint" class="govuk-hint">
+                                For example, 12 11 2007
+                            </span>
+                            <div class="govuk-date-input" id="passport-issued">
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                                            Day
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="dob-day" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['dob-day'] }}">
+                                    </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                                            Month
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="dob-month" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['dob-month'] }}">
+                                    </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                                            Year
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="dob-year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['dob-year'] }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    {% if data['check-your-answers-previous'] == "Yes" or data['account-previous'] == "Yes" %}
+                    <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Save and continue</button>
+                    {% else %}
+                    <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Continue</button>
+                    {% endif %}
+                </form>
+
+    </div>
+</div>
+
+{% endblock %}

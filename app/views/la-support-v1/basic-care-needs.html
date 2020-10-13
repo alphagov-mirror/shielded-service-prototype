@@ -27,12 +27,12 @@ Question page
 
                     <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="more-care-info" name="care-needs" type="radio" data-aria-controls="more-care-info-conditional" value="Yes, they need help meeting their basic care needs" {{ checked("care-needs", "Yes, they need help meeting their basic care needs") }}>
+                            <input class="govuk-radios__input" id="more-care-info" name="basiccare" type="radio" data-aria-controls="more-care-info-conditional" value="true" {{ checked("basiccare", "true") }}>
                             <label class="govuk-label govuk-radios__label" for="more-care-info">
                                 Yes, they need help meeting their basic care needs
                             </label>
                         </div>
-                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="more-care-info-conditional">
+                        <!-- <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="more-care-info-conditional">
                             <div class="govuk-form-group">
                                 <label class="govuk-label" for="more-care-info-cond">
                                     More details (optional)
@@ -40,9 +40,9 @@ Question page
                                 <textarea class="govuk-textarea" id="more-detail" name="care-more-detail" rows="5" aria-describedby="more-detail-hint">{{ data['care-more-detail'] }}</textarea>
                             </div>
 
-                        </div>
+                        </div> -->
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="how-contacted-conditional-2" name="care-needs" type="radio" value="No, they do not need help meeting their basic care needs" {{ checked("care-needs", "No, they do not need help meeting their basic care needs") }}>
+                            <input class="govuk-radios__input" id="how-contacted-conditional-2" name="basiccare" type="radio" value="false" {{ checked("basiccare", "false") }}>
                             <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
                                 No, they do not need help meeting their basic care needs
                             </label>

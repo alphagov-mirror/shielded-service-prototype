@@ -192,23 +192,26 @@ NHS: {{ summary.nhsNumber }} - SVP Support Toolkit
                     </dt>
                     <dd class="govuk-summary-list__value">
                         <p class="govuk-body">
-                            {{ data['someone-to-go-shopping'] }}</p>
-
-                        {% if data['priority-slots'] == "Yes" %}
-
-                        <p class="govuk-body">
-                            Yes, they require priority supermarket delivery slots</p>
-
-                        {% elif data['priority-slots'] == "No" %}
-
-                        <p class="govuk-body">
-                            No, they don't require priority supermarket delivery slots</p>
+                            {% if data['someonetogoshopping']  %}
+                            Yes, they have someone who can go shopping for them </p>
 
                         {% else %}
 
                         <p class="govuk-body">
-                            &nbsp;
-                            {% endif %}
+                            &nbsp; </p>
+
+                        {% endif %}
+
+                        <p class="govuk-body">
+                            {% if data['priorityslots'] %}
+                            No, they do no require priority supermarket deliivery slots </p>
+
+                        {% else %}
+
+                        <p class="govuk-body">
+                            &nbsp; </p>
+
+                        {% endif %}
 
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="../../la-support-v1/someone-to-go-shopping">
@@ -222,11 +225,15 @@ NHS: {{ summary.nhsNumber }} - SVP Support Toolkit
                         Basic care needs
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        <p class="govuk-body">{{ data['care-needs'] }}</p>
-                        {% if data['care-more-detail'] %}
-                        <p>{{ data['care-more-detail'] }}</p>
+                        {% if data['basiccare'] == 'true' %}
+
+                        <p class="govuk-body">
+                            Yes, they need help meeting their basic care needs
+                        </p>
                         {% else %}
-                        &nbsp;
+                        <p class="govuk-body">
+                            No, they do not need help meeting their basic care needs
+                        </p>
                         {% endif %}
 
                     </dd>

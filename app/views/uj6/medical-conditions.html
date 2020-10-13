@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="eligibility-2">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Do you have one of the listed medical conditions?</h1>
+
+        <form class="form" action="conditions-check" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+
+                    <div class="govuk-body">
+                        <div id="inset-text-b6f5fcf8" class="gem-c-inset-text govuk-inset-text">
+
+                            <p class="govuk-body">You have one of the listed medical conditions if you:</p>
+                            <ul class="govuk-list govuk-list--bullet app-list--spaced">
+                                <li>have had a solid organ transplant</li>
+                                <li>have any cancer and are getting chemotherapy</li>
+                                <li>have lung cancer and are getting radical radiotherapy</li>
+                                <li>have cancer of the blood or bone marrow, at any stage of treatment - for example, leukaemia, lymphoma or myeloma</li>
+                                <li>have any cancer for which you’re getting immunotherapy or other continuing antibody treatments</li>
+                                <li>have any cancer for which you’re getting a targeted treatment which can affect the immune system - for example, protein kinase inhibitors or PARP inhibitors</li>
+                                <li>have had bone marrow or stem cell transplants in the last 6 months, or are still taking immunosuppression drugs</li>
+                                <li>have a severe respiratory condition - including cystic fibrosis, severe asthma or severe COPD (Chronic Obstructive Pulmonary Disease)</li>
+                                <li>have a rare disease or inborn error of metabolism that significantly increases your risk of infection - for example SCID or homozygous sickle cell</li>
+                                <li>are getting an immunosuppression therapy that’s sufficient to significantly increase your risk of infection</li>
+                                <li>are pregnant, and have a significant congenital or acquired heart disease</li>
+                            </ul>
+
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="govuk-radios">
+                        <div class="gem-c-radio govuk-radios__item">
+                            <input type="radio" name="medical_conditions" id="medical_conditions" value="True" class="govuk-radios__input">
+
+                            <label for="medical_conditions" class="gem-c-label govuk-label govuk-radios__label">Yes, I have one of the listed medical conditions</label>
+
+
+                        </div>
+
+                        <div class="gem-c-radio govuk-radios__item">
+                            <input type="radio" name="medical_conditions" id="radio-d321f89a-1" value="False" class="govuk-radios__input">
+
+                            <label for="radio-d321f89a-1" class="gem-c-label govuk-label govuk-radios__label">No, I do not have one of the listed medical conditions</label>
+
+
+                        </div>
+
+                    </div>
+                </fieldset>
+            </div>
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

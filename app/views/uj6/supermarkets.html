@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+{% if data['check-your-answers-previous'] == "Yes" %}
+{% else %}
+<a class="govuk-back-link" href="contact-details">Back</a>
+{% endif %}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">
+            Do you want access to priority supermarket deliveries?
+        </h1>
+
+        {% if data['check-your-answers-previous'] == "Yes" %}
+        <form class="form" action="/uj6/check-your-answers" method="post">
+            {% elif data['account-previous'] == "Yes" %}
+            <form class="form" action="/uj6/updated" method="post">
+                {% else %}
+                <form class="form" action="/uj6/basic-care-needs" method="post">
+                    {% endif %}
+
+                    <p>This just gives you priority. It does not mean that you'll definitely be able to get a delivery slot.</p>
+
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+
+                            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="supermarket" name="supermarket" type="radio" value="Yes" aria-controls="conditional-supermarket" aria-expanded="true">
+                                    <label class="govuk-label govuk-radios__label" for="supermarket">
+                                        Yes, I want access to priority supermarket deliveries
+                                    </label>
+
+                                </div>
+                                {#                                 
+                                <div class="govuk-radios__conditional" id="conditional-supermarket">
+                                    <p>This does not guarantee you a delivery slot. If you think you might run out of supplies, contact your local council as soon as possible. We'll give you a link when you've finished answering the questions.</p>
+                                </div> #}
+
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="supermarket-2" name="supermarket" type="radio" value="No">
+                                    <label class="govuk-label govuk-radios__label" for="supermarket-2">
+                                        No, I do not want access to priority supermarket deliveries
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <details class="govuk-details" data-module="govuk-details">
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                                What information about you is shared with supermarkets
+                            </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                            <p>We share your name, address and contact details with these supermarkets so they can find you in their system and offer you priority slots.</p>
+
+                            <p>You will need to create an account with the supermarkets if you do not already have one.</p>
+
+                            <p>Supermarkets involved:</p>
+
+                            <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+
+                                <li>Asda</li>
+                                <li>Iceland</li>
+                                <li>Morrisons</li>
+                                <li>Ocado</li>
+                                <li>Sainsburys</li>
+                                <li>Tesco</li>
+                                <li>Waitrose</li>
+                            </ul>
+                            <br />
+                        </div>
+                        <br />
+                    </details>
+
+                    {% if data['check-your-answers-previous'] == "Yes" or data['account-previous'] == "Yes" %}
+                    <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Save and continue</button>
+                    {% else %}
+                    <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Continue</button>
+                    {% endif %}
+
+                </form>
+
+
+
+    </div>
+</div>
+
+{% endblock %}

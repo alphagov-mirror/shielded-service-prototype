@@ -30,26 +30,20 @@ Question page
 
                     <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="more-care-info" name="someone-to-go-shopping" type="radio" data-aria-controls="someone-to-go-shopping-yes" value="Yes, they have someone who can go shopping for them" {{ checked("someone-to-go-shopping", "Yes, they have someone who can go shopping for them") }}>
-                            <label class="govuk-label govuk-radios__label" for="more-care-info">
+                            <input class="govuk-radios__input" id="someonetogoshoppingyes" name="someonetogoshopping" type="radio" data-aria-controls="someonetogoshoppingyes" value="true" {{ checked("someonetogoshopping", "true") }}>
+                            <label class="govuk-label govuk-radios__label" for="someonetogoshoppingyes">
                                 Yes, they have someone who can go shopping for them
                             </label>
                         </div>
-                        <!--  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="someone-to-go-shopping-yes">
-                            <div class="govuk-form-group">
-                                <label class="govuk-label" for="someone-to-go-shopping-yes">
-                                    More details (optional)
-                                </label>
-                                <textarea class="govuk-textarea" id="more-detail" name="care-more-detail" rows="5" aria-describedby="more-detail-hint">{{ data['care-more-detail'] }}</textarea>
-                            </div>
-                        </div> -->
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="how-contacted-conditional-2" name="someone-to-go-shopping" type="radio" value="No, they don't have someone who can go shopping for them" data-aria-controls="someone-to-go-shopping-no" {{ checked("someone-to-go-shopping", "No, they don't have someone who can go shopping for them") }}>
-                            <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
+                            <input class="govuk-radios__input" id="someonetogoshoppingno" name="someonetogoshopping" type="radio" value="false" data-aria-controls="someonetogoshoppingno" {{ checked("someonetogoshopping", "false") }}>
+                            <label class="govuk-label govuk-radios__label" for="someonetogoshoppingno">
                                 No, they don't have someone who can go shopping for them
                             </label>
+
                         </div>
-                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="someone-to-go-shopping-no">
+
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="someonetogoshoppingno">
                             <div class="govuk-form-group">
                                 <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
 
@@ -58,14 +52,14 @@ Question page
                                     </div>
                                     <div class="govuk-radios govuk-radios--inline">
                                         <div class="govuk-radios__item">
-                                            <input class="govuk-radios__input" id="priority-slots" name="priority-slots" type="radio" value="Yes" {{ checked("priority-slots", "Yes") }}>
-                                            <label class="govuk-label govuk-radios__label" for="priority-slots">
+                                            <input class="govuk-radios__input" id="priorityslots" name="priorityslots" type="radio" value="true" {{ checked("priorityslots", "true") }}>
+                                            <label class="govuk-label govuk-radios__label" for="priorityslots">
                                                 Yes
                                             </label>
                                         </div>
                                         <div class="govuk-radios__item">
-                                            <input class="govuk-radios__input" id="priority-slots-2" name="priority-slots" type="radio" value="No" {{ checked("priority-slots", "No") }}>
-                                            <label class="govuk-label govuk-radios__label" for="priority-slots-2">
+                                            <input class="govuk-radios__input" id="priority-slots-2" name="priorityslots" type="radio" value="false" {{ checked("priorityslots", "false") }}>
+                                            <label class="govuk-label govuk-radios__label" for="priorityslots2">
                                                 No
                                             </label>
                                         </div>

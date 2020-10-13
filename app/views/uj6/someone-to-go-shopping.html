@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+{% if data['check-your-answers-previous'] == "Yes" %}
+{% else %}
+<a class="govuk-back-link" href="contact-details">Back</a>
+{% endif %}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Is there someone you can rely on to go shopping for you if you need them to?</h1>
+
+        <p>For example a friend, family member or partner.</p>
+
+        <p>Priority supermarket deliveries are only available to people who do not have someone to go shopping for them.</p>
+
+        {% if data['check-your-answers-previous'] == "Yes" %}
+        <form class="form" action="/uj6/check-your-answers" method="post">
+            {% elif data['account-previous'] == "Yes" %}
+            <form class="form" action="/uj6/updated" method="post">
+                {% else %}
+                <form class="form" action="/uj6/supermarkets" method="post">
+                    {% endif %}
+
+
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                            <!--  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                           
+                        </h1>
+                    </legend> -->
+                            <div class="govuk-radios">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="someone-to-go-shopping" name="someone-to-go-shopping" type="radio" value="Yes">
+                                    <label class="govuk-label govuk-radios__label" for="someone-to-go-shopping">
+                                        Yes, there’s someone I can rely on to go shopping for me
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="someone-to-go-shopping" name="someone-to-go-shopping" type="radio" value="No">
+                                    <label class="govuk-label govuk-radios__label" for="someone-to-go-shopping">
+                                        No, I cannot rely on someone to go shopping for me
+                                    </label>
+                                </div>
+
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    {% if data['check-your-answers-previous'] == "Yes" or data['account-previous'] == "Yes" %}
+                    <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Save and continue</button>
+                    {% else %}
+                    <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Continue</button>
+                    {% endif %}
+
+                </form>
+
+                <div class="govuk-inset-text">
+                    If this changes you need to come back and tell us.</div>
+
+
+
+
+    </div>
+</div>
+
+{% endblock %}

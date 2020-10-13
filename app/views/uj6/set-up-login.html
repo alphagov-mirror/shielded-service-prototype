@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">We have received your application</h1>
+
+        <h2 class="govuk-heading-m"> Would you like to create an account?</h2>
+
+        <p>An account:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>makes it easier to update your details</li>
+            <li>lets you access other NHS services</li>
+            <li>takes about 5 minutes to set up</li>
+        </ul>
+
+        <br />
+
+        <p>
+            <form id="clearcya" method="post" action="https://svps-nhs-login.herokuapp.com/uj5/enter-email">
+                <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="No">
+                <a href="javascript:{}" onclick="document.getElementById('clearcya').submit();return false;"><img src="../../../public/images/NHS-login-buttons/3x/CreateAccount_Original@3x.png" style="max-width: 360px;"></a>
+            </form>
+        </p>
+
+
+        <p><a href="confirmation"><button class="govuk-button" data-module="govuk-button">
+                    Continue without an account
+                </button></a></p>
+
+    </div>
+</div>
+
+{% endblock %}
