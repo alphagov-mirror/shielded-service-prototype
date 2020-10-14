@@ -15,12 +15,13 @@ Question page
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-l">Is there any other support you’d need in order to shield?</h1>
+        <h1 class="govuk-heading-l">Additional support if you were told to start shielding</h1>
 
-        <p>For example because shielding would mean you do not have someone to talk to, or to give you help washing, bathing or keeping your house clean if you need it.
-        </p>
+        <p>At the moment your area is at COVID alert level: very high, but people are not being told to shield.</p>
 
-        <div class="govuk-inset-text">If you need this type of support you’ll have to contact your local authority. We’ll give you a link to their details when you’ve finished using the service so you can contact them and they can decide whether you need support.</div>
+        <br />
+
+        <!--   <div class="govuk-inset-text">If you need this type of support you’ll have to contact your local authority. We’ll give you a link to their details when you’ve finished using the service so you can contact them and they can decide whether you need support.</div> -->
 
         {% if data['check-your-answers-previous'] == "Yes" %}
         <form class="form" action="/uj6/check-your-answers" method="post">
@@ -31,13 +32,19 @@ Question page
                     {% endif %}
 
                     <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--m" for="passport-number">
+                            If you were told to start shielding, is there any additional support you would need?
+                        </label>
+                        <div id="passport-number-hint" class="govuk-hint">
+                            For example because shielding would mean you do not have someone to talk to, or to give you help washing, bathing or keeping your house clean if you need it.
+                        </div>
                         <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
 
                             <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                                 <div class="govuk-radios__item">
                                     <input class="govuk-radios__input" id="more-care-info" name="care-needs" type="radio" value="Yes" {{ checked("care-needs", "Yes") }}>
                                     <label class="govuk-label govuk-radios__label" for="more-care-info">
-                                        Yes, I would need support in order to shield
+                                        Yes, I would need additional support in order to shield
 
                                     </label>
                                 </div>
@@ -45,7 +52,7 @@ Question page
                                 <div class="govuk-radios__item">
                                     <input class="govuk-radios__input" id="how-contacted-conditional-2" name="care-needs" type="radio" value="No" {{ checked("care-needs", "No") }}>
                                     <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
-                                        No, I would not need support in order to shield
+                                        No, I would not need additional support in order to shield
 
                                     </label>
                                 </div>
@@ -64,6 +71,10 @@ Question page
 
 
                 </form>
+
+
+                <div class="govuk-inset-text">If you need additional support, your local authority will get in touch if people in your area are told to start shielding.
+                </div>
     </div>
 </div>
 
