@@ -143,6 +143,8 @@ Question page
 
         <hr>
 
+        {% if data['someone-to-go-shopping'] == "No" %}
+
         <br />
 
         <h2 class="govuk-heading-m">Do you want access to priority supermarket deliveries?
@@ -161,6 +163,8 @@ Question page
         <hr>
 
         <br />
+
+        {% endif %}
 
         <h2 class="govuk-heading-m">Do you need additional support if you were told to start shielding?</h2>
 
