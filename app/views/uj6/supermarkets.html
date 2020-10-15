@@ -22,7 +22,7 @@ Question page
         {% if data['check-your-answers-previous'] == "Yes" %}
         <form class="form" action="/uj6/check-your-answers" method="post">
             {% elif data['account-previous'] == "Yes" %}
-            <form class="form" action="/uj6/updated" method="post">
+            <form class="form" action="/uj6/account" method="post">
                 {% else %}
                 <form class="form" action="/uj6/basic-care-needs" method="post">
                     {% endif %}
@@ -35,7 +35,7 @@ Question page
                             <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
 
                                 <div class="govuk-radios__item">
-                                    <input class="govuk-radios__input" id="supermarket" name="supermarket" type="radio" value="Yes" aria-controls="conditional-supermarket" aria-expanded="true">
+                                    <input class="govuk-radios__input" id="supermarket" name="supermarket" type="radio" value="Yes" aria-controls="conditional-supermarket" aria-expanded="true" {{ checked("supermarket", "Yes") }}>
                                     <label class="govuk-label govuk-radios__label" for="supermarket">
                                         Yes, I want access to priority supermarket deliveries
                                     </label>
@@ -47,7 +47,7 @@ Question page
                                 </div> #}
 
                                 <div class="govuk-radios__item">
-                                    <input class="govuk-radios__input" id="supermarket-2" name="supermarket" type="radio" value="No">
+                                    <input class="govuk-radios__input" id="supermarket-2" name="supermarket" type="radio" value="No" {{ checked("supermarket", "No") }}>
                                     <label class="govuk-label govuk-radios__label" for="supermarket-2">
                                         No, I do not want access to priority supermarket deliveries
                                     </label>
@@ -85,7 +85,7 @@ Question page
                     </details>
 
                     {% if data['check-your-answers-previous'] == "Yes" or data['account-previous'] == "Yes" %}
-                    <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Save and continue</button>
+                    <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Continue</button>
                     {% else %}
                     <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Continue</button>
                     {% endif %}

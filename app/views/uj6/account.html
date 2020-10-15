@@ -31,7 +31,7 @@ Question page
             {% endif %}
         </p>
 
-        <form class="form" id="addresschange" method="post" action="/uj5/address-2">
+        <form class="form" id="addresschange" method="post" action="/uj6/address-2">
             <input type="hidden" id="account-previous" name="account-previous" value="Yes">
             <a href="javascript:{}" onclick="document.getElementById('addresschange').submit(); return false;">Change</a>
         </form>
@@ -116,7 +116,7 @@ Question page
             Existing@com
             {% endif %}</p>
 
-        <form class="form" id="contactchange" method="post" action="/uj5/contact-details">
+        <form class="form" id="contactchange" method="post" action="/uj6/contact-details">
             <input type="hidden" id="account-previous" name="account-previous" value="Yes">
             <a href="javascript:{}" onclick="document.getElementById('contactchange').submit(); return false;">Change</a>
         </form>
@@ -128,19 +128,16 @@ Question page
 
         <br />
 
-        <h2 class="govuk-heading-m">Do you want priority supermarket deliveries?
+        <h2 class="govuk-heading-m">Is there someone you can rely on to go shopping for you if you need them to?
         </h2>
 
-        <p>{% if data['supermarket'] %}
-            {{ data['supermarket'] }}
-            {% else %}
-            Yes
-            {% endif %}</p>
+        <p>{{ data['someone-to-go-shopping'] }}</p>
 
-        <form class="form" id="supermarketschange" method="post" action="/uj5/supermarkets">
-            <input type="hidden" id="account-previous" name="account-previous" value="Yes">
-            <a href="javascript:{}" onclick="document.getElementById('supermarketschange').submit(); return false;">Change</a>
+        <form id="shoppingchange" method="post" action="/uj6/someone-to-go-shopping">
+            <input type="hidden" id="check-your-answers-previous" name="account-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('shoppingchange').submit();return false;">Change</a>
         </form>
+
 
         <br /><br />
 
@@ -148,7 +145,24 @@ Question page
 
         <br />
 
-        <h2 class="govuk-heading-m">Do you need help meeting your basic care needs?</h2>
+        <h2 class="govuk-heading-m">Do you want access to priority supermarket deliveries?
+        </h2>
+
+        <p>{{ data['supermarket'] }}</p>
+
+        <form id="supermarketschange" method="post" action="/uj6/supermarkets">
+            <input type="hidden" id="check-your-answers-previous" name="account-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('supermarketschange').submit();return false;">Change</a>
+        </form>
+
+
+        <br /><br />
+
+        <hr>
+
+        <br />
+
+        <h2 class="govuk-heading-m">Do you need additional support if you were told to start shielding?</h2>
 
         <p>{% if data['care-needs'] %}
             {{ data['care-needs'] }}
@@ -162,7 +176,7 @@ Question page
         &nbsp;
         {% endif %}
 
-        <form class="form" id="basic-care-needs-change" method="post" action="/uj5/basic-care-needs">
+        <form class="form" id="basic-care-needs-change" method="post" action="/uj6/basic-care-needs">
             <input type="hidden" id="account-previous" name="account-previous" value="Yes">
             <a href="javascript:{}" onclick="document.getElementById('basic-care-needs-change').submit(); return false;">Change</a>
         </form>
@@ -196,8 +210,8 @@ Question page
 
             -->
 
-        <a href="start"><button class="govuk-button" data-module="govuk-button">
-                Sign out
+        <a href="nhs-login"><button class="govuk-button" data-module="govuk-button">
+                Save and sign out
             </button></a>
 
     </div>
