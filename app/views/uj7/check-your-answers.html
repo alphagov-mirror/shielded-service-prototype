@@ -139,11 +139,17 @@ Question page
 
         <p>{{ data['someone-to-go-shopping'] }}</p>
 
+        {% if data['postcode'] == "LS1 1AB" %}
+        <form id="shoppingchange" method="post" action="/uj7/someone-to-go-shopping-shielding">
+            <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('shoppingchange').submit();return false;">Change</a>
+        </form>
+        {% else %}
         <form id="shoppingchange" method="post" action="/uj7/someone-to-go-shopping">
             <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
             <a href="javascript:{}" onclick="document.getElementById('shoppingchange').submit();return false;">Change</a>
         </form>
-
+        {% endif %}
 
         <br /><br />
 
@@ -158,11 +164,17 @@ Question page
 
         <p>{{ data['supermarket'] }}</p>
 
+        {% if data['postcode'] == "LS1 1AB" %}
+        <form id="supermarketschange" method="post" action="/uj7/supermarkets-shielding">
+            <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('supermarketschange').submit();return false;">Change</a>
+        </form>
+        {% else %}
         <form id="supermarketschange" method="post" action="/uj7/supermarkets">
             <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
             <a href="javascript:{}" onclick="document.getElementById('supermarketschange').submit();return false;">Change</a>
         </form>
-
+        {% endif %}
 
         <br /><br />
 
@@ -186,10 +198,17 @@ Question page
         &nbsp;
         {% endif %}
 
+        {% if data['postcode'] == "LS1 1AB" %}
+        <form id="basiccareneedschange" method="post" action="/uj7/basic-care-needs-shielding">
+            <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('basiccareneedschange').submit();return false;">Change</a>
+        </form>
+        {% else %}
         <form id="basiccareneedschange" method="post" action="/uj7/basic-care-needs">
             <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
             <a href="javascript:{}" onclick="document.getElementById('basiccareneedschange').submit();return false;">Change</a>
         </form>
+        {% endif %}
 
         <br /><br />
 
