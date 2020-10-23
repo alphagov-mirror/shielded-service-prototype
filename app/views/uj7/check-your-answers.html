@@ -172,7 +172,11 @@ Question page
 
         {% endif %}
 
-        <h2 class="govuk-heading-m">Do you need additional support if you were told to start shielding?</h2>
+        {% if data['postcode'] == "LS1 1AB" %}
+        <h2 class="govuk-heading-m">Do you need additional support to help you shield?</h2>
+        {% else %}
+        <h2 class="govuk-heading-m">Would you need additional support if you were told to start ‘shielding’?</h2>
+        {% endif %}
 
         <p>{{ data['care-needs'] }}</p>
 
