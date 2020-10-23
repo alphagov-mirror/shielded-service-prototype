@@ -1,0 +1,224 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+
+{% block beforeContent %}
+<!-- <a class="govuk-back-link" href="17">Back</a> -->
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Your account</h1>
+
+        <h2 class="govuk-heading-m">The address where support is needed</h2>
+
+        <p>
+            {% if data['manualaddress'] == "Yes" %}
+            {{ data['building_and_street_line_1'] }}<br />
+            {{ data['building_and_street_line_2'] }}<br />
+            {{ data['town_city'] }}<br />
+            {{ data['postcode'] }}
+            {% else %}
+            3 Example Street<br />
+            Leeds<br />
+            LS1 1AH
+            {% endif %}
+        </p>
+
+        <form class="form" id="addresschange" method="post" action="/uj7/address-2">
+            <input type="hidden" id="account-previous" name="account-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('addresschange').submit(); return false;">Change</a>
+        </form>
+
+        <br /><br />
+
+        <hr>
+
+        <br />
+
+        <h2 class="govuk-heading-m">Name</h2>
+
+        <p>{% if data['first-name'] %}
+            {{ data['first-name'] }}
+            {% else %}
+            Joe
+            {% endif %}
+            {% if data['middle-name'] %}
+            {{ data['middle-name'] }}
+            {% endif %}
+            {% if data['last-name'] %}
+            {{ data['last-name'] }}
+            {% else %}
+            Bloggs
+            {% endif %}
+        </p>
+
+        <!--    <a href="name" class="govuk-link">Change your name</a> --> <br /><br />
+
+        <hr>
+
+        <br />
+
+        <h2 class="govuk-heading-m">Date of birth</h2>
+
+        <p>{% if data['dob-day'] %}
+            {{ data['dob-day'] }}
+            {% else %}
+            12
+            {% endif %}
+            -
+            {% if data['dob-month'] %}
+            {{ data['dob-month'] }}
+            {% else %}
+            11
+            {% endif %}
+            -
+            {% if data['dob-year'] %}
+            {{ data['dob-year'] }}
+            {% else %}
+            1979
+            {% endif %}
+        </p>
+
+
+        <!--     <a href="date-of-birth" class="govuk-link">Change</a> -->
+
+        <br /><br />
+
+        <hr>
+
+        <br />
+
+        <h2 class="govuk-heading-m">Contact details</h2>
+
+
+        <p>Phone number (for calls): {% if data['telephone-number'] %}
+            {{ data['telephone-number'] }}
+            {% else %}
+            01234 567890
+            {% endif %}
+        </p>
+        <p>Phone number (for texts): {% if data['telephone-number-text'] %}
+            {{ data['telephone-number-text'] }}
+            {% else %}
+            07890 123456
+            {% endif %}
+        </p>
+        <p>Email: {% if data['email'] %}
+            {{ data['email'] }}
+            {% else %}
+            Existing@com
+            {% endif %}</p>
+
+        <form class="form" id="contactchange" method="post" action="/uj7/contact-details">
+            <input type="hidden" id="account-previous" name="account-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('contactchange').submit(); return false;">Change</a>
+        </form>
+
+
+        <br /><br />
+
+        <hr>
+
+        <br />
+
+        <h2 class="govuk-heading-m">Is there someone you can rely on to go shopping for you if you need them to?
+        </h2>
+
+        <p>{{ data['someone-to-go-shopping'] }}</p>
+
+        <form id="shoppingchange" method="post" action="/uj7/someone-to-go-shopping">
+            <input type="hidden" id="check-your-answers-previous" name="account-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('shoppingchange').submit();return false;">Change</a>
+        </form>
+
+
+        <br /><br />
+
+        <hr>
+
+        {% if data['someone-to-go-shopping'] == "No" %}
+
+        <br />
+
+        <h2 class="govuk-heading-m">Do you want access to priority supermarket deliveries?
+        </h2>
+
+        <p>{{ data['supermarket'] }}</p>
+
+        <form id="supermarketschange" method="post" action="/uj7/supermarkets">
+            <input type="hidden" id="check-your-answers-previous" name="account-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('supermarketschange').submit();return false;">Change</a>
+        </form>
+
+
+        <br /><br />
+
+        <hr>
+
+        <br />
+
+        {% endif %}
+
+        <h2 class="govuk-heading-m">Do you need additional support if you were told to start shielding?</h2>
+
+        <p>{% if data['care-needs'] %}
+            {{ data['care-needs'] }}
+            {% else %}
+            No
+            {% endif %}</p>
+
+        {% if data['care-more-detail'] %}
+        <p>{{ data['care-more-detail'] }}</p>
+        {% else %}
+        &nbsp;
+        {% endif %}
+
+        <form class="form" id="basic-care-needs-change" method="post" action="/uj7/basic-care-needs">
+            <input type="hidden" id="account-previous" name="account-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('basic-care-needs-change').submit(); return false;">Change</a>
+        </form>
+
+        <br /><br />
+
+
+        <!--   <h2 class="govuk-heading-m">Now send your application</h2>
+
+        <p>By submitting this application you’re confirming that, as far as you know, the details you’re providing are correct</p>
+
+        <br />
+
+        {% if data.yourself == "Myself" %}
+
+            <a href="set-up-login">
+                <button class="govuk-button" data-module="govuk-button">
+                    Accept and send
+                </button></a>
+
+            <br /><br />
+
+            {% else %}
+            <a href="confirmation">
+                <button class="govuk-button" data-module="govuk-button">
+                    Accept and send
+                </button></a>
+
+            <br /><br />
+            {% endif %}
+
+            -->
+
+        <a href="nhs-login"><button class="govuk-button" data-module="govuk-button">
+                Save and sign out
+            </button></a>
+
+    </div>
+</div>
+
+{% endblock %}

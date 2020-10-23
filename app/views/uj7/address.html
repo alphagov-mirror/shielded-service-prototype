@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="name">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">What is the address where you need support?</h1>
+
+        <h2 class="govuk-heading-m">Postcode</h2>
+
+        <p class="govuk-body">
+            <span class="govuk-!-font-weight-bold govuk-!-padding-right-3">
+                {{ data['postcode'] }}
+            </span>
+            <a class="govuk-link" href="#">Change</a>
+            <br /><br />
+        </p>
+
+
+        {% if data['postcode'] == "LS1 1AB" %}
+        <form class="form" action="/uj7/someone-to-go-shopping-shielding" method="post">
+            {% else %}
+            <form class="form" action="/uj7/someone-to-go-shopping" method="post">
+                {% endif %}
+
+                <div class="govuk-form-group gem-c-select">
+                    <label class="govuk-label govuk-label--m" for="address">Select your address</label>
+
+
+                    <select name="address" id="address" class="govuk-select">
+                        <option value="1">1, EXAMPLE STREET, LEEDS, {{ data['postcode'] }}</option>
+                        <option value="2">2, EXAMPLE STREET, LEEDS, {{ data['postcode'] }}</option>
+                        <option value="3">3, EXAMPLE STREET, LEEDS, {{ data['postcode'] }}</option>
+                        <option value="4">4, EXAMPLE STREET, LEEDS, {{ data['postcode'] }}</option>
+                    </select>
+                </div>
+
+                <p class="govuk-body">
+                    <a class="govuk-link" href="address-2">My address isn't listed or is wrong</a>
+                </p>
+                <button class="govuk-button" data-module="govuk-button">
+                    Continue
+                </button>
+
+            </form>
+
+
+            <p class="govuk-body-s govuk-!-padding-top-3">
+                Contains Royal Mail data © Royal Mail copyright and database rights 2020
+            </p>
+
+    </div>
+
+
+    {% endblock %}

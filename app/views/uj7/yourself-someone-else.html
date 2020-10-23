@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="start">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Are you using this service for yourself or for someone else?</h1>
+
+        <form class="form" action="yourself" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+
+                    <div class="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="yourself" name="yourself" type="radio" value="Myself">
+                            <label class="govuk-label govuk-radios__label" for="yourself">
+                                Myself
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="yourself-2" name="yourself" type="radio" value="Someone">
+                            <label class="govuk-label govuk-radios__label" for="yourself-2">
+                                Someone else
+                            </label>
+                        </div>
+
+                    </div>
+                </fieldset>
+            </div>
+
+
+            <button class="govuk-button" data-module="govuk-button">
+                Continue
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

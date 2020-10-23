@@ -25,13 +25,13 @@ Question page
             If this changes you need to come back and tell us.</p>
 
         {% if data['check-your-answers-previous'] == "Yes" %}
-        <form class="form" action="/uj6/check-your-answers" method="post">
+        <form class="form" action="/uj7/check-your-answers" method="post">
             {% elif data['account-previous'] == "Yes" %}
-            <form class="form" action="/uj6/account" method="post">
+            <form class="form" action="/uj7/account" method="post">
                 {% elif data['someone-to-go-shopping'] == "Yes" %}
-                <form class="form" action="/uj6/basic-care-needs" method="post">
+                <form class="form" action="/uj7/basic-care-needs" method="post">
                     {% else %}
-                    <form class="form" action="/uj6/supermarkets" method="post">
+                    <form class="form" action="/uj7/supermarkets" method="post">
                         {% endif %}
 
 

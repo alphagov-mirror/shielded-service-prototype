@@ -23,11 +23,11 @@ Question page
         </div>
 
         {% if data['check-your-answers-previous'] == "Yes" %}
-        <form class="form" action="/uj6/check-your-answers" method="post">
+        <form class="form" action="/uj7/check-your-answers" method="post">
             {% elif data['account-previous'] == "Yes" %}
-            <form class="form" action="/uj6/account" method="post">
+            <form class="form" action="/uj7/account" method="post">
                 {% else %}
-                <form class="form" action="/uj6/contact-details" method="post">
+                <form class="form" action="/uj7/contact-details" method="post">
                     {% endif %}
 
                     <div class="govuk-form-group">

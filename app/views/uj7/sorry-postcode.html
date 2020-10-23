@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="postcode">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+        <h1 class="govuk-heading-l">Sorry, this service is not available in your area</h1>
+
+
+        <p class="govuk-body">Your area is not at Local COVID Alert Level: very high, so you cannot get help through this service at the moment.
+
+        </p>
+
+        <p class="govuk-body">If your area goes into Local COVID Alert Level: very high, go through the questions again: <a href="www.gov.uk/coronavirus-shielding-support">www.gov.uk/coronavirus-shielding-support</a>.</p>
+
+        <p class="govuk-body">Make sure you’re up to date with the guidance on what you can and cannot do if you’re clinically extremely vulnerable to coronavirus: <a href="https://www.gov.uk/coronavirus-extremely-vulnerable-guidance">https://www.gov.uk/coronavirus-extremely-vulnerable-guidance</a></p>
+
+        <p class="govuk-body">There’s also guidance if you live in:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>Northern Ireland</li>
+            <li>Scotland</li>
+            <li>Wales</li>
+        </ul>
+
+        <p class="govuk-body">We won’t store the information you entered into this service.</p>
+
+        <p class="govuk-body"><a class="govuk-link" href="https://www.gov.uk/done/coronavirus-extremely-vulnerable">Give feedback on this service</a>.</p>
+
+
+    </div>
+</div>
+
+{% endblock %}
