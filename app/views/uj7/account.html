@@ -133,10 +133,18 @@ Question page
 
         <p>{{ data['someone-to-go-shopping'] }}</p>
 
-        <form id="shoppingchange" method="post" action="/uj7/someone-to-go-shopping">
-            <input type="hidden" id="check-your-answers-previous" name="account-previous" value="Yes">
+        {% if data['postcode'] == "LS1 1AB" %}
+        <form id="shoppingchange" method="post" action="/uj7/someone-to-go-shopping-shielding">
+            <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
             <a href="javascript:{}" onclick="document.getElementById('shoppingchange').submit();return false;">Change</a>
         </form>
+        {% else %}
+        <form id="shoppingchange" method="post" action="/uj7/someone-to-go-shopping">
+            <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('shoppingchange').submit();return false;">Change</a>
+        </form>
+        {% endif %}
+
 
 
         <br /><br />
@@ -152,10 +160,17 @@ Question page
 
         <p>{{ data['supermarket'] }}</p>
 
-        <form id="supermarketschange" method="post" action="/uj7/supermarkets">
-            <input type="hidden" id="check-your-answers-previous" name="account-previous" value="Yes">
+        {% if data['postcode'] == "LS1 1AB" %}
+        <form id="supermarketschange" method="post" action="/uj7/supermarkets-shielding">
+            <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
             <a href="javascript:{}" onclick="document.getElementById('supermarketschange').submit();return false;">Change</a>
         </form>
+        {% else %}
+        <form id="supermarketschange" method="post" action="/uj7/supermarkets">
+            <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('supermarketschange').submit();return false;">Change</a>
+        </form>
+        {% endif %}
 
 
         <br /><br />
@@ -166,7 +181,12 @@ Question page
 
         {% endif %}
 
-        <h2 class="govuk-heading-m">Do you need additional support if you were told to start shielding?</h2>
+        {% if data['postcode'] == "LS1 1AB" %}
+        <h2 class="govuk-heading-m">Do you need additional support to help you shield?</h2>
+        {% else %}
+        <h2 class="govuk-heading-m">Would you need additional support if you were told to start ‘shielding’?</h2>
+        {% endif %}
+
 
         <p>{% if data['care-needs'] %}
             {{ data['care-needs'] }}
@@ -180,11 +200,17 @@ Question page
         &nbsp;
         {% endif %}
 
-        <form class="form" id="basic-care-needs-change" method="post" action="/uj7/basic-care-needs">
-            <input type="hidden" id="account-previous" name="account-previous" value="Yes">
-            <a href="javascript:{}" onclick="document.getElementById('basic-care-needs-change').submit(); return false;">Change</a>
+        {% if data['postcode'] == "LS1 1AB" %}
+        <form id="basiccareneedschange" method="post" action="/uj7/basic-care-needs-shielding">
+            <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('basiccareneedschange').submit();return false;">Change</a>
         </form>
-
+        {% else %}
+        <form id="basiccareneedschange" method="post" action="/uj7/basic-care-needs">
+            <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('basiccareneedschange').submit();return false;">Change</a>
+        </form>
+        {% endif %}
         <br /><br />
 
 
