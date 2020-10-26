@@ -18,11 +18,11 @@ Question page
         <h1 class="govuk-heading-l">What is the address where you need support?</h1>
 
         {% if data['check-your-answers-previous'] == "Yes" %}
-        <form class="form" action="/uj5/check-your-answers" method="post">
+        <form class="form" action="/uj7/check-your-answers" method="post">
             {% elif data['account-previous'] == "Yes" %}
-            <form class="form" action="/uj5/updated" method="post">
+            <form class="form" action="/uj7/account" method="post">
                 {% else %}
-                <form class="form" action="/uj5/supermarkets" method="post">
+                <form class="form" action="/uj7/supermarkets" method="post">
                     {% endif %}
 
                     <div class="govuk-form-group">
@@ -68,7 +68,7 @@ Question page
                     <input type="hidden" id="manualaddress" name="manualaddress" value="Yes">
 
                     {% if data['check-your-answers-previous'] == "Yes" or data['account-previous'] == "Yes" %}
-                    <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Save and continue</button>
+                    <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Continue</button>
                     {% else %}
                     <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Continue</button>
                     {% endif %}

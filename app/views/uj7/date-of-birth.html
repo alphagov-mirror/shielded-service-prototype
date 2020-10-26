@@ -24,7 +24,7 @@ Question page
         {% if data['check-your-answers-previous'] == "Yes" %}
         <form class="form" action="/uj7/check-your-answers" method="post">
             {% elif data['account-previous'] == "Yes" %}
-            <form class="form" action="/uj7/updated" method="post">
+            <form class="form" action="/uj7/account" method="post">
                 {% else %}
                 <form class="form" action="/uj7/address" method="post">
                     {% endif %}
