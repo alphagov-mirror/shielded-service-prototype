@@ -131,7 +131,11 @@ Question page
         <h2 class="govuk-heading-m">Is there someone you can rely on to go shopping for you if you need them to?
         </h2>
 
-        <p>{{ data['someone-to-go-shopping'] }}</p>
+        <p>{% if data['someone-to-go-shopping'] %}
+            {{ data['someone-to-go-shopping'] }}
+            {% else %}
+            No
+            {% endif %}</p>
 
         {% if data['postcode'] == "LS1 1AB" %}
         <form id="shoppingchange" method="post" action="/uj7/someone-to-go-shopping-shielding">
