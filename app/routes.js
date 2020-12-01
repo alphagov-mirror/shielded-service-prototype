@@ -653,6 +653,51 @@ router.post('/uj7/has-nhs-login', function (req, res) {
     }
 })
 
+router.post('/uj7/has-nhs-login-a', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var nhslogin = req.session.data['have-nhs-login']
+
+    // Check whether the variable matches a condition
+    if (nhslogin == "Yes") {
+        // Send user to next page
+        res.redirect('/uj7/nhs-login-tier-decrease-4-to-3')
+    } else {
+        // Send user to ineligible page
+        res.redirect('/uj7/postcode')
+    }
+})
+
+router.post('/uj7/has-nhs-login-b', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var nhslogin = req.session.data['have-nhs-login']
+
+    // Check whether the variable matches a condition
+    if (nhslogin == "Yes") {
+        // Send user to next page
+        res.redirect('/uj7/nhs-login-tier-decrease-to-2')
+    } else {
+        // Send user to ineligible page
+        res.redirect('/uj7/postcode')
+    }
+})
+
+router.post('/uj7/has-nhs-login-c', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var nhslogin = req.session.data['have-nhs-login']
+
+    // Check whether the variable matches a condition
+    if (nhslogin == "Yes") {
+        // Send user to next page
+        res.redirect('/uj7/nhs-login-tier-increase')
+    } else {
+        // Send user to ineligible page
+        res.redirect('/uj7/postcode')
+    }
+})
+
 
 
 router.post('/uj7/someone-to-go-shopping-answer', function (req, res) {

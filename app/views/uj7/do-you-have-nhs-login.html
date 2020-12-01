@@ -17,6 +17,136 @@ Question page
 
         <p>You might have one if you’ve used the NHS App.</p>
 
+        {% if data['return'] == "A" %}
+        <form class="form" action="has-nhs-login-a" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+
+                    <div class="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="have-nhs-login" name="have-nhs-login" type="radio" value="Yes">
+                            <label class="govuk-label govuk-radios__label" for="have-nhs-login">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="have-nhs-login-2" name="have-nhs-login" type="radio" value="No">
+                            <label class="govuk-label govuk-radios__label" for="have-nhs-login-2">
+                                No
+                            </label>
+                        </div>
+
+                    </div>
+                </fieldset>
+            </div>
+
+            <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        What is NHS login?
+                    </span>
+                </summary>
+                <div class="govuk-details__text">
+                    <p>NHS login allows you to sign into different NHS services, for example the NHS App.</p>
+
+                    <p> If you do not have one, you’ll be able to create an account after you've finished answering the questions.</p>
+                </div>
+
+            </details>
+
+            <button class="govuk-button" data-module="govuk-button">
+                Continue
+            </button>
+
+        </form>
+        {% elif data['return'] == "B" %}
+        <form class="form" action="has-nhs-login-b" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+
+                    <div class="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="have-nhs-login" name="have-nhs-login" type="radio" value="Yes">
+                            <label class="govuk-label govuk-radios__label" for="have-nhs-login">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="have-nhs-login-2" name="have-nhs-login" type="radio" value="No">
+                            <label class="govuk-label govuk-radios__label" for="have-nhs-login-2">
+                                No
+                            </label>
+                        </div>
+
+                    </div>
+                </fieldset>
+            </div>
+
+            <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        What is NHS login?
+                    </span>
+                </summary>
+                <div class="govuk-details__text">
+                    <p>NHS login allows you to sign into different NHS services, for example the NHS App.</p>
+
+                    <p> If you do not have one, you’ll be able to create an account after you've finished answering the questions.</p>
+                </div>
+
+            </details>
+
+            <button class="govuk-button" data-module="govuk-button">
+                Continue
+            </button>
+
+        </form>
+        {% elif data['return'] == "C" %}
+        <form class="form" action="has-nhs-login-c" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+
+                    <div class="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="have-nhs-login" name="have-nhs-login" type="radio" value="Yes">
+                            <label class="govuk-label govuk-radios__label" for="have-nhs-login">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="have-nhs-login-2" name="have-nhs-login" type="radio" value="No">
+                            <label class="govuk-label govuk-radios__label" for="have-nhs-login-2">
+                                No
+                            </label>
+                        </div>
+
+                    </div>
+                </fieldset>
+            </div>
+
+            <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        What is NHS login?
+                    </span>
+                </summary>
+                <div class="govuk-details__text">
+                    <p>NHS login allows you to sign into different NHS services, for example the NHS App.</p>
+
+                    <p> If you do not have one, you’ll be able to create an account after you've finished answering the questions.</p>
+                </div>
+
+            </details>
+
+            <button class="govuk-button" data-module="govuk-button">
+                Continue
+            </button>
+
+        </form>
+        {% else %}
         <form class="form" action="has-nhs-login" method="post">
 
             <div class="govuk-form-group">
@@ -59,6 +189,9 @@ Question page
             </button>
 
         </form>
+        {% endif %}
+
+
 
     </div>
 </div>
