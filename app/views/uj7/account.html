@@ -19,19 +19,21 @@ Question page
         <h2 class="govuk-heading-m">The address where support is needed</h2>
 
         <p>
-            {% if data['manualaddress'] == "Yes" %}
-            {{ data['building_and_street_line_1'] }}<br />
-            {{ data['building_and_street_line_2'] }}<br />
-            {{ data['town_city'] }}<br />
+
+            {% if data['address'] %}
+            {{ data['address'] }}
+            {% else %}
+            1
+            {% endif %} Example Street<br />
+            City<br />
+            {% if data['postcode'] %}
             {{ data['postcode'] }}
             {% else %}
-            3 Example Street<br />
-            Leeds<br />
-            LS1 1AH
+            LS1 1DE
             {% endif %}
         </p>
 
-        <form class="form" id="addresschange" method="post" action="/uj7/address-2">
+        <form class="form" id="addresschange" method="post" action="/uj7/postcode-2">
             <input type="hidden" id="account-previous" name="account-previous" value="Yes">
             <a href="javascript:{}" onclick="document.getElementById('addresschange').submit(); return false;">Change</a>
         </form>
