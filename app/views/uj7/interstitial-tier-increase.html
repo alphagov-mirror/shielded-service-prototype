@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="do-you-have-nhs-login">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <!--  <h1 class="govuk-heading-l"></h1> -->
+
+        <h1 class="govuk-heading-m">Your area has changed tier since you registered</h1>
+
+        <p>This means we’ll need to ask you an extra question.</p>
+
+        <br />
+
+        <form id="shoppingchange" method="post" action="/uj7/basic-care-needs-shielding-tier-increase">
+            <input type="hidden" id="postcode" name="postcode" value="LS1 1AB">
+            <input type="hidden" id="someone-to-go-shopping" name="someone-to-go-shopping" value="Yes">
+            <input type="hidden" id="telephone-number" name="telephone-number" value="01234 567890">
+            <input type="hidden" id="telephone-number-text" name="telephone-number-text" value="07890123456">
+            <input type="hidden" id="email" name="email" value="email@address.com">
+            <input type="hidden" id="address" name="address" value="3">
+
+            <a href="basic-care-needs-shielding-tier-increase">
+                <button class="govuk-button" data-module="govuk-button">
+                    Continue
+                </button>
+            </a>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

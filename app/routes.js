@@ -670,7 +670,7 @@ router.post('/uj7/someone-to-go-shopping-answer', function (req, res) {
     } else if (accountprevious == "Yes") {
         res.redirect('/uj7/account')
     } else {
-        res.redirect('/uj7/basic-care-needs')
+        res.redirect('/uj7/check-your-answers')
     }
 })
 

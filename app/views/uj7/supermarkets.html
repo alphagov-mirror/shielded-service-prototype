@@ -24,10 +24,10 @@ Question page
             {% elif data['account-previous'] == "Yes" %}
             <form class="form" action="/uj7/account" method="post">
                 {% else %}
-                <form class="form" action="/uj7/basic-care-needs" method="post">
+                <form class="form" action="/uj7/check-your-answers" method="post">
                     {% endif %}
 
-                    <p>This just gives you priority. It does not mean that you'll definitely be able to get a delivery slot.</p>
+                    <p>This just gives you priority. It does not mean that you'll definitely get a delivery slot.</p>
 
                     <div class="govuk-form-group">
                         <fieldset class="govuk-fieldset">
@@ -56,6 +56,8 @@ Question page
                         </fieldset>
                     </div>
 
+                    <p>If you want deliveries and do not already have an account with a supermarket delivery service, you’ll need to go to the supermarket’s website and set one up when you’ve finished using this service.</p>
+
                     <details class="govuk-details" data-module="govuk-details">
                         <summary class="govuk-details__summary">
                             <span class="govuk-details__summary-text">
@@ -63,15 +65,15 @@ Question page
                             </span>
                         </summary>
                         <div class="govuk-details__text">
-                            <p>We share your name, address and contact details with these supermarkets so they can find you in their system and offer you priority slots.</p>
+                            <p>We share your name, address and contact details with supermarkets so they can find you in their system and offer you priority deliveries.</p>
 
-                            <p>You will need to create an account with the supermarkets if you do not already have one.</p>
+                            <p>Supermarkets will keep this information until it’s clear that clinically extremely vulnerable people will not need this kind of support in future.</p>
 
                             <p>Supermarkets involved:</p>
 
                             <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
 
-                                <li>Asda</li>
+                                <li>Asda (priority delivery slots only available after 23 December)</li>
                                 <li>Iceland</li>
                                 <li>Morrisons</li>
                                 <li>Ocado</li>

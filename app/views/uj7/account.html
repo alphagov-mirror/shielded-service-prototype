@@ -185,35 +185,25 @@ Question page
 
         {% endif %}
 
-        {% if data['postcode'] == "LS1 1AB" %}
-        <h2 class="govuk-heading-m">Do you need additional support to help you shield?</h2>
-        {% else %}
-        <h2 class="govuk-heading-m">Would you need additional support if you were told to start ‘shielding’?</h2>
-        {% endif %}
-
-
+        {% if data['care-needs'] %}
+        <h2 class="govuk-heading-m">Do you need someone to contact you about local support that might be available?</h2>
         <p>{% if data['care-needs'] %}
             {{ data['care-needs'] }}
             {% else %}
             No
             {% endif %}</p>
-
-        {% if data['care-more-detail'] %}
-        <p>{{ data['care-more-detail'] }}</p>
         {% else %}
         &nbsp;
         {% endif %}
 
-        {% if data['postcode'] == "LS1 1AB" %}
+
+        {% if data['care-needs'] %}
         <form id="basiccareneedschange" method="post" action="/uj7/basic-care-needs-shielding">
             <input type="hidden" id="account-previous" name="account-previous" value="Yes">
             <a href="javascript:{}" onclick="document.getElementById('basiccareneedschange').submit();return false;">Change</a>
         </form>
         {% else %}
-        <form id="basiccareneedschange" method="post" action="/uj7/basic-care-needs">
-            <input type="hidden" id="account-previous" name="account-previous" value="Yes">
-            <a href="javascript:{}" onclick="document.getElementById('basiccareneedschange').submit();return false;">Change</a>
-        </form>
+        &nbsp;
         {% endif %}
         <br /><br />
 

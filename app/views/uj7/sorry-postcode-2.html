@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="postcode">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+        <h1 class="govuk-heading-l">Sorry, this service is not available in your area</h1>
+
+
+        <p class="govuk-body">Your area is not at Local COVID Alert Level: very high, so you cannot get help through this service at the moment.
+
+        </p>
+
+        <p class="govuk-body">If your area goes into Tier 3, you’ll be able to sign in to this service and update your support needs or personal details.</p>
+
+
+        <h2 class="govuk-heading-m">If you’ve changed your address</h2>
+
+
+        <p class="govuk-body">You’ll be able to update your support needs or personal details if you’ve moved into an area that’s in Tier 3.</p>
+
+        <a href="postcode"><button class="govuk-button" data-module="govuk-button">I've changed my address</button></a>
+
+    </div>
+</div>
+
+{% endblock %}
