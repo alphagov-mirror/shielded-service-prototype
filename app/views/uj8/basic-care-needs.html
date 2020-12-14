@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+{% if data['check-your-answers-previous'] == "Yes" %}
+{% else %}
+<a class="govuk-back-link" href="supermarkets">Back</a>
+{% endif %}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Are you likely to need additional support to help you ‘shield’?</h1>
+
+        <p>For example, because shielding means you do not have someone to talk to, or to help with everyday tasks like keeping your house clean if you need it.</p>
+
+        <div class="govuk-inset-text">You’ll only be able to get this sort of support if people in your area have been told to start shielding.
+        </div>
+
+        {% if data['check-your-answers-previous'] == "Yes" %}
+        <form class="form" action="/uj8/check-your-answers" method="post">
+            {% elif data['account-previous'] == "Yes" %}
+            <form class="form" action="/uj8/account" method="post">
+                {% else %}
+                <form class="form" action="/uj8/contact-details" method="post">
+                    {% endif %}
+
+                    <div class="govuk-form-group">
+
+                        <fieldset class="govuk-fieldset" aria-describedby="how-contacted-conditional-hint">
+
+                            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="more-care-info" name="care-needs" type="radio" value="Yes" {{ checked("care-needs", "Yes") }}>
+                                    <label class="govuk-label govuk-radios__label" for="more-care-info">
+                                        Yes, I’m likely to need additional support in order to shield
+
+                                    </label>
+                                </div>
+
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="how-contacted-conditional-2" name="care-needs" type="radio" value="No" {{ checked("care-needs", "No") }}>
+                                    <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
+                                        No, I am not likely to need additional support in order to shield
+
+                                    </label>
+                                </div>
+
+                                <input type="hidden" id="hidden" name="edittoggle" value="Yes">
+
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    {% if data['check-your-answers-previous'] == "Yes" or data['account-previous'] == "Yes" %}
+                    <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Continue</button>
+                    {% else %}
+                    <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Continue</button>
+                    {% endif %}
+
+
+                </form>
+
+
+
+    </div>
+</div>
+
+{% endblock %}

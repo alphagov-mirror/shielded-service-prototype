@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="nhs-login-tier-decrease-4-to-3">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <!--  <h1 class="govuk-heading-l"></h1> -->
+
+        <h1 class="govuk-heading-m">Your area has decreased tiers since you registered</h1>
+
+        <p>This means your local council is no longer contacting people about local support that might be available.</p>
+
+        <p>You can still request priority access to supermarket deliveries. If you already have priority access, you’ll keep it.</p>
+
+
+        <br />
+
+        <a href="account">
+            <button class="govuk-button" data-module="govuk-button">
+                Continue
+            </button>
+        </a>
+
+    </div>
+</div>
+
+{% endblock %}

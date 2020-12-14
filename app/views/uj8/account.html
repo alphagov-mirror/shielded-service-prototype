@@ -1,0 +1,246 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+
+{% block beforeContent %}
+<!-- <a class="govuk-back-link" href="17">Back</a> -->
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Your account</h1>
+
+        <h2 class="govuk-heading-m">The address where support is needed</h2>
+
+        <p>
+
+            {% if data['address'] %}
+            {{ data['address'] }}
+            {% else %}
+            1
+            {% endif %} Example Street<br />
+            City<br />
+            {% if data['postcode'] %}
+            {{ data['postcode'] }}
+            {% else %}
+            LS1 1DE
+            {% endif %}
+        </p>
+
+        <form class="form" id="addresschange" method="post" action="/uj8/postcode-2">
+            <input type="hidden" id="account-previous" name="account-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('addresschange').submit(); return false;">Change</a>
+        </form>
+
+        <br /><br />
+
+        <hr>
+
+        <br />
+
+        <h2 class="govuk-heading-m">Name</h2>
+
+        <p>{% if data['first-name'] %}
+            {{ data['first-name'] }}
+            {% else %}
+            Joe
+            {% endif %}
+            {% if data['middle-name'] %}
+            {{ data['middle-name'] }}
+            {% endif %}
+            {% if data['last-name'] %}
+            {{ data['last-name'] }}
+            {% else %}
+            Bloggs
+            {% endif %}
+        </p>
+
+        <!--    <a href="name" class="govuk-link">Change your name</a> --> <br /><br />
+
+        <hr>
+
+        <br />
+
+        <h2 class="govuk-heading-m">Date of birth</h2>
+
+        <p>{% if data['dob-day'] %}
+            {{ data['dob-day'] }}
+            {% else %}
+            12
+            {% endif %}
+            -
+            {% if data['dob-month'] %}
+            {{ data['dob-month'] }}
+            {% else %}
+            11
+            {% endif %}
+            -
+            {% if data['dob-year'] %}
+            {{ data['dob-year'] }}
+            {% else %}
+            1979
+            {% endif %}
+        </p>
+
+
+        <!--     <a href="date-of-birth" class="govuk-link">Change</a> -->
+
+        <br /><br />
+
+        <hr>
+
+        <br />
+
+        <h2 class="govuk-heading-m">Contact details</h2>
+
+
+        <p>Phone number (for calls): {% if data['telephone-number'] %}
+            {{ data['telephone-number'] }}
+            {% else %}
+            01234 567890
+            {% endif %}
+        </p>
+        <p>Phone number (for texts): {% if data['telephone-number-text'] %}
+            {{ data['telephone-number-text'] }}
+            {% else %}
+            07890 123456
+            {% endif %}
+        </p>
+        <p>Email: {% if data['email'] %}
+            {{ data['email'] }}
+            {% else %}
+            Existing@com
+            {% endif %}</p>
+
+        <form class="form" id="contactchange" method="post" action="/uj8/contact-details">
+            <input type="hidden" id="account-previous" name="account-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('contactchange').submit(); return false;">Change</a>
+        </form>
+
+
+        <br /><br />
+
+        <hr>
+
+        <br />
+
+        <h2 class="govuk-heading-m">Is there someone you can rely on to go shopping for you if you need them to?
+        </h2>
+
+        <p>{% if data['someone-to-go-shopping'] %}
+            {{ data['someone-to-go-shopping'] }}
+            {% else %}
+            Yes
+            {% endif %}</p>
+
+        {% if data['postcode'] == "LS1 1AB" %}
+        <form id="shoppingchange" method="post" action="/uj8/someone-to-go-shopping-shielding">
+            <input type="hidden" id="account-previous" name="account-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('shoppingchange').submit();return false;">Change</a>
+        </form>
+        {% else %}
+        <form id="shoppingchange" method="post" action="/uj8/someone-to-go-shopping">
+            <input type="hidden" id="account-previous" name="account-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('shoppingchange').submit();return false;">Change</a>
+        </form>
+        {% endif %}
+
+
+
+        <br /><br />
+
+        <hr>
+
+        {% if data['someone-to-go-shopping'] == "No" %}
+
+        <br />
+
+        <h2 class="govuk-heading-m">Do you want access to priority supermarket deliveries?
+        </h2>
+
+        <p>{{ data['supermarket'] }}</p>
+
+        {% if data['postcode'] == "LS1 1AB" %}
+        <form id="supermarketschange" method="post" action="/uj8/supermarkets-shielding">
+            <input type="hidden" id="account-previous" name="account-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('supermarketschange').submit();return false;">Change</a>
+        </form>
+        {% else %}
+        <form id="supermarketschange" method="post" action="/uj8/supermarkets">
+            <input type="hidden" id="account-previous" name="account-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('supermarketschange').submit();return false;">Change</a>
+        </form>
+        {% endif %}
+
+
+        <br /><br />
+
+        <hr>
+
+        <br />
+
+        {% endif %}
+
+        {% if data['care-needs'] %}
+        <h2 class="govuk-heading-m">Do you need someone to contact you about local support that might be available?</h2>
+        <p>{% if data['care-needs'] %}
+            {{ data['care-needs'] }}
+            {% else %}
+            No
+            {% endif %}</p>
+        {% else %}
+        &nbsp;
+        {% endif %}
+
+
+        {% if data['care-needs'] %}
+        <form id="basiccareneedschange" method="post" action="/uj8/basic-care-needs-shielding">
+            <input type="hidden" id="account-previous" name="account-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('basiccareneedschange').submit();return false;">Change</a>
+        </form>
+        {% else %}
+        &nbsp;
+        {% endif %}
+        <br /><br />
+
+
+        <!--   <h2 class="govuk-heading-m">Now send your application</h2>
+
+        <p>By submitting this application you’re confirming that, as far as you know, the details you’re providing are correct</p>
+
+        <br />
+
+        {% if data.yourself == "Myself" %}
+
+            <a href="set-up-login">
+                <button class="govuk-button" data-module="govuk-button">
+                    Accept and send
+                </button></a>
+
+            <br /><br />
+
+            {% else %}
+            <a href="confirmation">
+                <button class="govuk-button" data-module="govuk-button">
+                    Accept and send
+                </button></a>
+
+            <br /><br />
+            {% endif %}
+
+            -->
+
+        <a href="nhs-login"><button class="govuk-button" data-module="govuk-button">
+                Save and sign out
+            </button></a>
+
+    </div>
+</div>
+
+{% endblock %}

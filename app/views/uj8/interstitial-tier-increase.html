@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="nhs-login-tier-increase">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <!--  <h1 class="govuk-heading-l"></h1> -->
+
+        <h1 class="govuk-heading-m">Your area has increased tiers since you registered</h1>
+
+        <p></p>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>You are advised not to attend work. If you cannot work from home, you are
+                eligible for statutory sick pay</li>
+            <li>You are advised not to attend school. Your school will make appropriate
+                arrangements for you to be able to continue your education at home.</li>
+            <li>You cannot meet anyone outside of your household or support bubble.</li>
+            <li>You are advised to go outside for exercise only, and avoid busy
+                areas/times.</li>
+            <li>You do not need to socially distance within your household.</li>
+            <li>You are advised not to go to shops or pharmacy. You are eligible for free
+                medicines delivery from your pharmacy.</li>
+            <li>You should use online food delivery, or ask you support bubble to shop for
+                you. If you need further assistance, contact your local authority.</li>
+        </ul>
+
+
+
+        <br />
+
+        <form id="shoppingchange" method="post" action="/uj8/basic-care-needs-shielding-tier-increase">
+            <input type="hidden" id="postcode" name="postcode" value="LS1 1AB">
+            <input type="hidden" id="someone-to-go-shopping" name="someone-to-go-shopping" value="Yes">
+            <input type="hidden" id="telephone-number" name="telephone-number" value="01234 567890">
+            <input type="hidden" id="telephone-number-text" name="telephone-number-text" value="07890123456">
+            <input type="hidden" id="email" name="email" value="email@address.com">
+            <input type="hidden" id="address" name="address" value="3">
+
+            <a href="basic-care-needs-shielding-tier-increase">
+                <button class="govuk-button" data-module="govuk-button">
+                    Continue
+                </button>
+            </a>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="do-you-have-nhs-login">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <!--  <h1 class="govuk-heading-l"></h1> -->
+
+        <h1 class="govuk-heading-m">Sign in to update your details or change the support you need</h1>
+
+        <br />
+
+        <a href="https://svps-nhs-login.herokuapp.com/uj8/enter-email">
+            <img src="../../../public/images/NHS-login-buttons/3x/SignInWith_Original@3x.png" style="max-width: 330px;">
+        </a>
+
+    </div>
+</div>
+
+{% endblock %}

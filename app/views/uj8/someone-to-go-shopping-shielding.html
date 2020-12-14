@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+{% if data['check-your-answers-previous'] == "Yes" %}
+{% else %}
+<a class="govuk-back-link" href="date-of-birth">Back</a>
+{% endif %}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Is there someone you can rely on to go shopping for you if you need them to?</h1>
+
+        <p>For example a friend, family member or partner.</p>
+
+        <p>If you do not have someone you can rely on to go shopping for you, you’ll be able to ask for priority supermarket deliveries. </p>
+
+        <p>If this changes you need to come back and tell us.</p>
+
+        <form class="form" action="someone-to-go-shopping-shielding-answer" method="post">
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+
+                    <div class="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="someone-to-go-shopping" name="someone-to-go-shopping" type="radio" value="Yes" {{ checked("someone-to-go-shopping", "Yes") }}>
+                            <label class="govuk-label govuk-radios__label" for="someone-to-go-shopping">
+                                Yes, there’s someone I can rely on to go shopping for me
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="someone-to-go-shopping" name="someone-to-go-shopping" type="radio" value="No" {{ checked("someone-to-go-shopping", "No") }}>
+                            <label class="govuk-label govuk-radios__label" for="someone-to-go-shopping">
+                                No, I cannot rely on someone to go shopping for me
+                            </label>
+                        </div>
+
+                    </div>
+                </fieldset>
+            </div>
+
+            {% if data['check-your-answers-previous'] == "Yes" or data['account-previous'] == "Yes" %}
+            <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Continue</button>
+            {% else %}
+            <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Continue</button>
+            {% endif %}
+
+        </form>
+
+
+
+
+
+    </div>
+</div>
+
+{% endblock %}

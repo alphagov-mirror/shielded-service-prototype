@@ -738,6 +738,466 @@ router.post('/uj7/someone-to-go-shopping-shielding-answer', function (req, res) 
     }
 })
 
+router.post('/uj8/nhs-login-answer', function (req, res) {
+    // Get the answer from session data
+    // The name between the quotes is the same as the 'name' attribute on the input elements
+    // However in JavaScript we can't use hyphens in variable names
+
+    const nhslogin = req.session.data['nhs-login']
+
+    if (nhslogin === 'false') {
+        res.redirect('1')
+    } else {
+        res.redirect('https://svps-nhs-login.herokuapp.com/uj8/enter-email')
+    }
+})
+
+router.post('/uj8/before-answer', function (req, res) {
+    // Get the answer from session data
+    // The name between the quotes is the same as the 'name' attribute on the input elements
+    // However in JavaScript we can't use hyphens in variable names
+
+    const before = req.session.data['serv-before']
+
+    if (before === 'false') {
+        res.redirect('1')
+    } else {
+        res.redirect('30')
+    }
+})
+
+router.post('/uj8/create-account-check', function (req, res) {
+
+    // Make a variable and give it the value from 'createaccount'
+    var createaccount = req.session.data['createaccount']
+
+    // Check whether the variable matches a condition
+    if (createaccount == "yes") {
+        // Send user to next page
+        res.redirect('https://svps-nhs-login.herokuapp.com/uj8/enter-email')
+    } else {
+        // Send user to confirmation page
+        res.redirect('/uj8/confirmation')
+    }
+})
+
+router.post('/uj8/create-account-check2', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var createaccount = req.session.data['createaccount']
+
+    // Check whether the variable matches a condition
+    if (createaccount == "False") {
+        // Send user to next page
+        res.redirect('/uj8/44')
+    } else {
+        // Send user to ineligible page
+        res.redirect('https://svps-nhs-login.herokuapp.com/uj8/enter-email')
+    }
+})
+
+
+router.post('/uj8/shield-check', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var shield = req.session.data['shield']
+
+    // Check whether the variable matches a condition
+    if (shield == "shield") {
+        // Send user to next page
+        res.redirect('/uj8/nhs-number')
+    } else {
+        // Send user to ineligible page
+        res.redirect('/uj8/medical-conditions')
+    }
+})
+
+router.post('/uj8/fuel/shield-check', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var shield = req.session.data['shield']
+
+    // Check whether the variable matches a condition
+    if (shield == "shield") {
+        // Send user to next page
+        res.redirect('/uj8/fuel/nhs-number')
+    } else {
+        // Send user to ineligible page
+        res.redirect('/uj8/fuel/medical-conditions')
+    }
+})
+
+
+router.post('/uj8/conditions-check', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var conditions = req.session.data['medical_conditions']
+
+    // Check whether the variable matches a condition
+    if (conditions == "True") {
+        // Send user to next page
+        res.redirect('/uj8/nhs-number')
+    } else {
+        // Send user to ineligible page
+        res.redirect('/uj8/sorry')
+    }
+})
+
+router.post('/uj8/check-england', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var country = req.session.data['country']
+
+    // Check whether the variable matches a condition
+    if (country == "True") {
+        // Send user to next page
+        res.redirect('/uj8/eligibility-2')
+    } else {
+        // Send user to ineligible page
+        res.redirect('/uj8/sorry-england-only')
+    }
+})
+
+
+router.post('/uj8/yourself', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var yourself = req.session.data['yourself']
+
+    // Check whether the variable matches a condition
+    if (yourself == "Myself") {
+        // Send user to next page
+        res.redirect('/uj8/do-you-have-nhs-login')
+    } else {
+        // Send user to ineligible page
+        res.redirect('/uj8/postcode')
+    }
+})
+
+
+router.post('/uj8/has-nhs-login', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var nhslogin = req.session.data['have-nhs-login']
+
+    // Check whether the variable matches a condition
+    if (nhslogin == "Yes") {
+        // Send user to next page
+        res.redirect('/uj8/nhs-login')
+    } else {
+        // Send user to ineligible page
+        res.redirect('/uj8/postcode')
+    }
+})
+
+router.post('/uj8/has-nhs-login-a', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var nhslogin = req.session.data['have-nhs-login']
+
+    // Check whether the variable matches a condition
+    if (nhslogin == "Yes") {
+        // Send user to next page
+        res.redirect('/uj8/nhs-login-tier-decrease-4-to-3')
+    } else {
+        // Send user to ineligible page
+        res.redirect('/uj8/postcode')
+    }
+})
+
+router.post('/uj8/has-nhs-login-b', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var nhslogin = req.session.data['have-nhs-login']
+
+    // Check whether the variable matches a condition
+    if (nhslogin == "Yes") {
+        // Send user to next page
+        res.redirect('/uj8/nhs-login-tier-decrease-to-2')
+    } else {
+        // Send user to ineligible page
+        res.redirect('/uj8/postcode')
+    }
+})
+
+router.post('/uj8/has-nhs-login-c', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var nhslogin = req.session.data['have-nhs-login']
+
+    // Check whether the variable matches a condition
+    if (nhslogin == "Yes") {
+        // Send user to next page
+        res.redirect('/uj8/nhs-login-tier-increase')
+    } else {
+        // Send user to ineligible page
+        res.redirect('/uj8/postcode')
+    }
+})
+
+
+
+router.post('/uj8/someone-to-go-shopping-answer', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var someoneToGoShopping = req.session.data['someone-to-go-shopping']
+    var checkyouranswersprevious = req.session.data['check-your-answers-previous']
+    var accountprevious = req.session.data['account-previous']
+
+    // Check whether the variable matches a condition
+    if (someoneToGoShopping == "No") {
+        res.redirect('/uj8/supermarkets')
+    } else if (checkyouranswersprevious == "Yes") {
+        res.redirect('/uj8/check-your-answers')
+    } else if (accountprevious == "Yes") {
+        res.redirect('/uj8/account')
+    } else {
+        res.redirect('/uj8/check-your-answers')
+    }
+})
+
+router.post('/uj8/someone-to-go-shopping-shielding-answer', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var someoneToGoShopping = req.session.data['someone-to-go-shopping']
+    var checkyouranswersprevious = req.session.data['check-your-answers-previous']
+    var accountprevious = req.session.data['account-previous']
+
+    // Check whether the variable matches a condition
+    if (someoneToGoShopping == "No") {
+        res.redirect('/uj8/supermarkets-shielding')
+    } else if (checkyouranswersprevious == "Yes") {
+        res.redirect('/uj8/check-your-answers')
+    } else if (accountprevious == "Yes") {
+        res.redirect('/uj8/account')
+    } else {
+        res.redirect('/uj8/basic-care-needs-shielding')
+    }
+})
+
+
+//uj8
+
+router.post('/uj8/nhs-login-answer', function (req, res) {
+    // Get the answer from session data
+    // The name between the quotes is the same as the 'name' attribute on the input elements
+    // However in JavaScript we can't use hyphens in variable names
+
+    const nhslogin = req.session.data['nhs-login']
+
+    if (nhslogin === 'false') {
+        res.redirect('1')
+    } else {
+        res.redirect('https://svps-nhs-login.herokuapp.com/uj8/enter-email')
+    }
+})
+
+router.post('/uj8/before-answer', function (req, res) {
+    // Get the answer from session data
+    // The name between the quotes is the same as the 'name' attribute on the input elements
+    // However in JavaScript we can't use hyphens in variable names
+
+    const before = req.session.data['serv-before']
+
+    if (before === 'false') {
+        res.redirect('1')
+    } else {
+        res.redirect('30')
+    }
+})
+
+router.post('/uj8/create-account-check', function (req, res) {
+
+    // Make a variable and give it the value from 'createaccount'
+    var createaccount = req.session.data['createaccount']
+
+    // Check whether the variable matches a condition
+    if (createaccount == "yes") {
+        // Send user to next page
+        res.redirect('https://svps-nhs-login.herokuapp.com/uj8/enter-email')
+    } else {
+        // Send user to confirmation page
+        res.redirect('/uj8/confirmation')
+    }
+})
+
+router.post('/uj8/create-account-check2', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var createaccount = req.session.data['createaccount']
+
+    // Check whether the variable matches a condition
+    if (createaccount == "False") {
+        // Send user to next page
+        res.redirect('/uj8/44')
+    } else {
+        // Send user to ineligible page
+        res.redirect('https://svps-nhs-login.herokuapp.com/uj8/enter-email')
+    }
+})
+
+
+router.post('/uj8/shield-check', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var shield = req.session.data['shield']
+
+    // Check whether the variable matches a condition
+    if (shield == "shield") {
+        // Send user to next page
+        res.redirect('/uj8/nhs-number-fuel')
+    } else {
+        // Send user to ineligible page
+        res.redirect('/uj8/medical-conditions')
+    }
+})
+
+router.post('/uj8/conditions-check', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var conditions = req.session.data['medical_conditions']
+
+    // Check whether the variable matches a condition
+    if (conditions == "True") {
+        // Send user to next page
+        res.redirect('/uj8/nhs-number')
+    } else {
+        // Send user to ineligible page
+        res.redirect('/uj8/sorry')
+    }
+})
+
+router.post('/uj8/check-england', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var country = req.session.data['country']
+
+    // Check whether the variable matches a condition
+    if (country == "True") {
+        // Send user to next page
+        res.redirect('/uj8/eligibility-2')
+    } else {
+        // Send user to ineligible page
+        res.redirect('/uj8/sorry-england-only')
+    }
+})
+
+
+router.post('/uj8/yourself', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var yourself = req.session.data['yourself']
+
+    // Check whether the variable matches a condition
+    if (yourself == "Myself") {
+        // Send user to next page
+        res.redirect('/uj8/do-you-have-nhs-login')
+    } else {
+        // Send user to ineligible page
+        res.redirect('/uj8/postcode')
+    }
+})
+
+
+router.post('/uj8/has-nhs-login', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var nhslogin = req.session.data['have-nhs-login']
+
+    // Check whether the variable matches a condition
+    if (nhslogin == "Yes") {
+        // Send user to next page
+        res.redirect('/uj8/nhs-login')
+    } else {
+        // Send user to ineligible page
+        res.redirect('/uj8/postcode')
+    }
+})
+
+router.post('/uj8/has-nhs-login-a', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var nhslogin = req.session.data['have-nhs-login']
+
+    // Check whether the variable matches a condition
+    if (nhslogin == "Yes") {
+        // Send user to next page
+        res.redirect('/uj8/nhs-login-tier-decrease-4-to-3')
+    } else {
+        // Send user to ineligible page
+        res.redirect('/uj8/postcode')
+    }
+})
+
+router.post('/uj8/has-nhs-login-b', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var nhslogin = req.session.data['have-nhs-login']
+
+    // Check whether the variable matches a condition
+    if (nhslogin == "Yes") {
+        // Send user to next page
+        res.redirect('/uj8/nhs-login-tier-decrease-to-2')
+    } else {
+        // Send user to ineligible page
+        res.redirect('/uj8/postcode')
+    }
+})
+
+router.post('/uj8/has-nhs-login-c', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var nhslogin = req.session.data['have-nhs-login']
+
+    // Check whether the variable matches a condition
+    if (nhslogin == "Yes") {
+        // Send user to next page
+        res.redirect('/uj8/nhs-login-tier-increase')
+    } else {
+        // Send user to ineligible page
+        res.redirect('/uj8/postcode')
+    }
+})
+
+
+
+router.post('/uj8/someone-to-go-shopping-answer', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var someoneToGoShopping = req.session.data['someone-to-go-shopping']
+    var checkyouranswersprevious = req.session.data['check-your-answers-previous']
+    var accountprevious = req.session.data['account-previous']
+
+    // Check whether the variable matches a condition
+    if (someoneToGoShopping == "No") {
+        res.redirect('/uj8/supermarkets')
+    } else if (checkyouranswersprevious == "Yes") {
+        res.redirect('/uj8/check-your-answers')
+    } else if (accountprevious == "Yes") {
+        res.redirect('/uj8/account')
+    } else {
+        res.redirect('/uj8/check-your-answers')
+    }
+})
+
+router.post('/uj8/someone-to-go-shopping-shielding-answer', function (req, res) {
+
+    // Make a variable and give it the value from 'know-nhs-number'
+    var someoneToGoShopping = req.session.data['someone-to-go-shopping']
+    var checkyouranswersprevious = req.session.data['check-your-answers-previous']
+    var accountprevious = req.session.data['account-previous']
+
+    // Check whether the variable matches a condition
+    if (someoneToGoShopping == "No") {
+        res.redirect('/uj8/supermarkets-shielding')
+    } else if (checkyouranswersprevious == "Yes") {
+        res.redirect('/uj8/check-your-answers')
+    } else if (accountprevious == "Yes") {
+        res.redirect('/uj8/account')
+    } else {
+        res.redirect('/uj8/basic-care-needs-shielding')
+    }
+})
 
 
 //LA Support tool//

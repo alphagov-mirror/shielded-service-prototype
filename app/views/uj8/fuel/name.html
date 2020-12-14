@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+{% if data['check-your-answers-previous'] == "Yes" %}
+{% else %}
+<a class="govuk-back-link" href="NIN">Back</a>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">What is your name?</h1>
+
+        <p class="govuk-body">If you’re registering for someone else, enter the name of the person who is clinically extremely vulnerable.</p>
+
+        {% if data['check-your-answers-previous'] == "Yes" %}
+        <form class="form" action="/uj8/fuel/check-your-answers" method="post">
+            {% else %}
+            <form class="form" action="/uj8/fuel/date-of-birth" method="post">
+                {% endif %}
+
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="first-name">
+                        First name
+                    </label>
+                    <input class="govuk-input" id="first-name" name="first-name" type="text" autocomplete="given-name" spellcheck="false" value="{{ data['first-name'] }}">
+                </div>
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="middle-name">
+                        Middle name
+                    </label>
+                    <input class="govuk-input" id="middle-name" name="middle-name" type="text" autocomplete="additional-name" spellcheck="false" value="{{ data['middle-name'] }}">
+                </div>
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="last-name">
+                        Last name
+                    </label>
+                    <input class="govuk-input" id="last-name" name="last-name" type="text" autocomplete="family-name" spellcheck="false" value="{{ data['last-name'] }}">
+                </div>
+
+
+                {% if data['check-your-answers-previous'] == "Yes" or data['account-previous'] == "Yes" %}
+                <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Continue</button>
+                {% else %}
+                <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Continue</button>
+                {% endif %}
+            </form>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,180 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="contact-details">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Check your answers before submitting</h1>
+
+        <!--     <h2 class="govuk-heading-m">The address where support is needed</h2>
+
+        {% if data['manualaddress'] == "Yes" %}
+        <p>{{ data['building_and_street_line_1'] }}<br />
+            {{ data['building_and_street_line_2'] }}<br />
+            {{ data['town_city'] }}<br />
+            {{ data['postcode'] }}</p>
+        {% else %}
+        <p>{{ data['address'] }} Example Street<br />
+            Leeds<br />
+            {{ data['postcode'] }}</p>
+        {% endif %}
+
+        <form class="form" id="addresschange" method="post" action="/uj8/postcode-3">
+            <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
+            <a href="javascript:{}" onclick="document.getElementById('addresschange').submit(); return false;">Change</a>
+        </form>
+
+        <br /><br />
+
+        <hr> -->
+
+        <br />
+
+        <h2 class="govuk-heading-m">NHS number</h2>
+
+        <p>
+            {{ data['nhs-number'] }}
+        </p>
+
+
+        <form id="namechange" method="post" action="/uj8/fuel/nhs-number">
+            <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
+            <a class="" href="/uj8/fuel/nhs-number" type="submit">Change</a>
+        </form>
+
+
+        <br /><br />
+
+        <hr>
+
+        <br />
+
+        <h2 class="govuk-heading-m">National Insurance Number</h2>
+
+        <p>
+            {{ data['national-insurance-number'] }}
+        </p>
+
+
+        <form id="namechange" method="post" action="/uj8/fuel/NIN">
+            <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
+            <a class="" href="/uj8/fuel/NIN" type="submit">Change</a>
+        </form>
+
+
+        <br /><br />
+
+        <hr>
+
+        <br />
+
+        <h2 class="govuk-heading-m">Name</h2>
+
+        <p>{% if data['first-name'] %}
+            {{ data['first-name'] }}
+            {% else %}
+            Joe
+            {% endif %}
+            {% if data['middle-name'] %}
+            {{ data['middle-name'] }}
+            {% endif %}
+            {% if data['last-name'] %}
+            {{ data['last-name'] }}
+            {% else %}
+            Bloggs
+            {% endif %}
+        </p>
+
+        <form id="namechange" method="post" action="/uj8/fuel/name">
+            <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
+            <a class="" href="/uj8/fuel/name" type="submit">Change</a>
+        </form>
+
+        <br /><br />
+
+        <hr>
+
+        <br />
+
+        <h2 class="govuk-heading-m">Date of birth</h2>
+
+        <p>{% if data['dob-day'] %}
+            {{ data['dob-day'] }}
+            {% else %}
+            12
+            {% endif %}
+            -
+            {% if data['dob-month'] %}
+            {{ data['dob-month'] }}
+            {% else %}
+            11
+            {% endif %}
+            -
+            {% if data['dob-year'] %}
+            {{ data['dob-year'] }}
+            {% else %}
+            1979
+            {% endif %}
+        </p>
+
+        <form id="dobchange" method="post" action="/uj8/fuel/date-of-birth">
+            <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
+            <a class="" href="/uj8/fuel/date-of-birth" type="submit">Change</a>
+        </form>
+
+        <br /><br />
+
+        <hr>
+
+        <br />
+
+        <h2 class="govuk-heading-m">Contact details</h2>
+
+
+        <p>Phone number (for calls): {{ data['telephone-number'] }}</p>
+        <p>Phone number (for texts): {{ data['telephone-number-text'] }}</p>
+        <p>Email: {{ data['email'] }}</p>
+
+        <form id="contactdetailschange" method="post" action="/uj8/fuel/contact-details">
+            <input type="hidden" id="check-your-answers-previous" name="check-your-answers-previous" value="Yes">
+            <a class="" href="/uj8/fuel/contact-details" type="submit">Change</a>
+        </form>
+
+        <br /><br />
+
+        <hr>
+
+        <br />
+
+        <h2 class="govuk-heading-m">Now send your application</h2>
+
+        <p>By submitting this application you’re confirming that, as far as you know, the details you’re providing are correct</p>
+
+        <br />
+
+        {% if data['yourself'] == "Myself" %}
+
+        {{ govukButton({ text: "Accept and send", href:"set-up-login"})}}
+
+        {% else %}
+
+        {{ govukButton({ text: "Accept and send", href:"confirmation"})}}
+
+        {% endif %}
+
+        <br />
+        <br />
+
+    </div>
+</div>
+
+{% endblock %}

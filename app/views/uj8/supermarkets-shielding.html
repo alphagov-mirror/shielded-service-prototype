@@ -1,0 +1,117 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+{% if data['check-your-answers-previous'] == "Yes" %}
+{% else %}
+<a class="govuk-back-link" href="someone-to-go-shopping">Back</a>
+{% endif %}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">
+            Do you want access to priority supermarket deliveries?
+        </h1>
+
+        {% if data['check-your-answers-previous'] == "Yes" %}
+        <form class="form" action="/uj8/check-your-answers" method="post">
+            {% elif data['account-previous'] == "Yes" %}
+            <form class="form" action="/uj8/account" method="post">
+                {% else %}
+                <form class="form" action="/uj8/basic-care-needs-shielding" method="post">
+                    {% endif %}
+
+                    <p>This just gives you priority. It does not mean that you'll definitely be able to get a delivery slot.</p>
+
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+
+                            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="supermarket" name="supermarket" type="radio" value="Yes" aria-controls="conditional-supermarket" aria-expanded="true" {{ checked("supermarket", "Yes") }}>
+                                    <label class="govuk-label govuk-radios__label" for="supermarket">
+                                        Yes, I want access to priority supermarket deliveries
+                                    </label>
+
+                                </div>
+                                {#                                 
+                                <div class="govuk-radios__conditional" id="conditional-supermarket">
+                                    <p>This does not guarantee you a delivery slot. If you think you might run out of supplies, contact your local council as soon as possible. We'll give you a link when you've finished answering the questions.</p>
+                                </div> #}
+
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="supermarket-2" name="supermarket" type="radio" value="No" {{ checked("supermarket", "No") }}>
+                                    <label class="govuk-label govuk-radios__label" for="supermarket-2">
+                                        No, I do not want access to priority supermarket deliveries
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <p>If you want deliveries and do not already have an account with a supermarket delivery service, you’ll need to go to the supermarket’s website and set one up when you’ve finished using this service.</p>
+
+                    <details class="govuk-details" data-module="govuk-details">
+                        <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                                More about getting supermarket deliveries
+                            </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                            <p>When you've registered with the service, here's what happens next:</p>
+
+
+                            <ol class="govuk-list govuk-list--number">
+                                <li><B>You set up an online supermarket account</B><br />If you do not have one already, set up an online account with one or more supermarkets. If you’re worried about not getting a slot, set up an online account with more than one of the participating supermarkets.
+                                </li>
+                                <li><B>We'll confirm you're eligible</B><br />We’ll send you an email, text message or letter confirming when this has happened.
+                                </li>
+                                <li><B>You book a delivery</B><br />Participating supermarkets should recognise you as a priority customer 1 to 7 days from when we confirm to them that you’re eligible for support. Your supermarket may contact you to say you now have access to priority slots with them. You can now go to the supermarket’s website and book a delivery.
+                                </li>
+                            </ol>
+                            <br />
+
+
+                            <p>Participating supermarkets:</p>
+
+                            <ul class="govuk-list govuk-list--bullet">
+
+                                <li>Asda (priority delivery slots only available after 23 December)</li>
+                                <li>Iceland</li>
+                                <li>Morrisons</li>
+                                <li>Ocado</li>
+                                <li>Sainsburys</li>
+                                <li>Tesco</li>
+                                <li>Waitrose</li>
+                            </ul>
+
+                            <p>We share your name, address and contact details with participating supermarkets so they can find you in their system and offer you priority deliveries.</p>
+
+                            <p>Supermarkets will keep this information until it’s clear that clinically extremely vulnerable people will not need this kind of support in future.</p>
+
+                            <br />
+                        </div>
+                        <br />
+                    </details>
+
+                    {% if data['check-your-answers-previous'] == "Yes" or data['account-previous'] == "Yes" %}
+                    <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Continue</button>
+                    {% else %}
+                    <button class="gem-c-button govuk-button gem-c-button--bottom-margin" type="submit">Continue</button>
+                    {% endif %}
+
+                </form>
+
+
+
+    </div>
+</div>
+
+{% endblock %}
