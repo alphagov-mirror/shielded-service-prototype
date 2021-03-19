@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Start page example 1
+{% endblock %}
+
+{% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="/index.html">Home</a>
+        </li>
+        <!-- <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Section</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link">Subsection</a>
+      </li> -->
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">
+            Get support if you’re clinically extremely vulnerable to coronavirus
+        </h1>
+
+        <div class="govuk-inset-text">
+            <p>This service has now closed.</p>
+        </div>
+
+        <p>If you’ve already got priority access to supermarket deliveries, you’ll keep it up to 21 June.</p>
+
+        <p><a href="https://www.gov.uk/coronavirus-local-help">Contact your local authority</a> if you need urgent help getting essential supplies and cannot rely on supermarket deliveries, family, friends or neighbours.</p>
+
+        <p>There’s <a href="https://www.gov.uk/government/publications/guidance-on-shielding-and-protecting-extremely-vulnerable-persons-from-covid-19/guidance-on-shielding-and-protecting-extremely-vulnerable-persons-from-covid-19">guidance on protecting yourself if you’re clinically extremely vulnerable to coronavirus</a>.
+        </p>
+
+        <h2 class="govuk-heading-s">If you do not live in England</h2>
+
+        <p class="govuk-body">
+            There's:
+        </p>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li><a class="govuk-link" href="https://www.health-ni.gov.uk/coronavirus">guidance for people who live in Northern Ireland</a></li>
+            <li><a class="govuk-link" href="https://www.gov.scot/publications/covid-shielding-contacts/">guidance for people who live in Scotland</a></li>
+            <li><a class="govuk-link" href="https://gov.wales/get-coronavirus-support-extremely-vulnerable-person">guidance for people who live in Wales</a></li>
+        </ul>
+    </div>
+
+</div>
+{% endblock %}
